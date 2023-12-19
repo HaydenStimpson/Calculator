@@ -13,9 +13,7 @@ namespace Calculator
     public partial class Form1 : Form
     {
         /* TODO
-         * 1. C and CE buttons
          * 2. . button
-         * 3. Backspace button
          * 4. keyboard shortcuts
          * 5. Percent button
          * 6. Square button
@@ -26,6 +24,7 @@ namespace Calculator
          *      - Enable/Disable window buttons accordingly
          * 10. Put 0 instead of null
          * 11. Change window title
+         * 12. Can Add characters to equals result - should instead reset all
          */
 
 
@@ -46,6 +45,7 @@ namespace Calculator
             Subtract, 
             Multiply, 
             Divide, 
+            Equals
         }
 
         Operation_Enum operation_enum = Operation_Enum.Null;
@@ -165,7 +165,25 @@ namespace Calculator
             {
                 textBox1.Text = (remembered_characters / ToOperate).ToString();
             }
-            operation_enum = Operation_Enum.Null;
+            operation_enum = Operation_Enum.Equals;
+        }
+
+        private void button_delete_Click(object sender, EventArgs e)
+        {
+            if (operation_enum != Operation_Enum.Equals) {
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void button_C_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            remembered_characters = 0;
+        }
+
+        private void button_CE_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
         }
     }
 }
