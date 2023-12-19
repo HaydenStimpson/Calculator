@@ -7,4 +7,4 @@ C:\Users\Hayden Stimpson\Desktop\Hayden\Code Projects\Calculator\Calculator\obj\
 C:\Users\Hayden Stimpson\Desktop\Hayden\Code Projects\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 C:\Users\Hayden Stimpson\Desktop\Hayden\Code Projects\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\Users\Hayden Stimpson\Desktop\Hayden\Code Projects\Calculator\Calculator\obj\Debug\Calculator.pdb
-C:\Users\Hayden Stimpson\Desktop\Hayden\Code Projects\Calculator\Calculator\obj\Debug\Calculator.Form1.resources
+C:\Users\Hayden Stimpson\Desktop\Hayden\Code Projects\Calculator\Calculator\obj\Debug\Calculator.Calculator.resources

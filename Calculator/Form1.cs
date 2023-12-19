@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
         /* TODO
          * 2. . button
@@ -22,9 +22,8 @@ namespace Calculator
          * 9. Dont allow size to be changed
          *      - Or allow app to stretch 
          *      - Enable/Disable window buttons accordingly
-         * 10. Put 0 instead of null
-         * 11. Change window title
-         * 12. Can Add characters to equals result - should instead reset all
+         * 10. Put 0 instead of null?
+         * 13. Add comments?
          */
 
 
@@ -33,7 +32,7 @@ namespace Calculator
 
         double remembered_characters;
         
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }
@@ -54,7 +53,15 @@ namespace Calculator
 
         private void add_character(double character)
         {
-            textBox1.Text += character;
+            if (operation_enum != Operation_Enum.Equals) {
+                textBox1.Text += character;
+            } 
+            else
+            {
+                textBox1.Text = "";
+                textBox1.Text += character;
+                operation_enum = Operation_Enum.Null;
+            }
         }
 
         private void clear_characters()
@@ -151,7 +158,7 @@ namespace Calculator
             double ToOperate = double.Parse(textBox1.Text);
             if (operation_enum == Operation_Enum.Add)
             {
-                textBox1.Text =  (ToOperate + remembered_characters).ToString();
+                textBox1.Text = (ToOperate + remembered_characters).ToString();
             } 
             else if (operation_enum == Operation_Enum.Subtract)
             {
@@ -179,11 +186,13 @@ namespace Calculator
         {
             textBox1.Text = "";
             remembered_characters = 0;
+            operation_enum = Operation_Enum.Null;
         }
 
         private void button_CE_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+            operation_enum = Operation_Enum.Null;
         }
     }
 }
