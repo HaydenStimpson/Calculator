@@ -13,7 +13,7 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * 4. keyboard shortcuts
+         * 4. keyboard shortcuts - Works, but have to click a button first
          * 5. Percent button
          * 6. Square button
          * 7. Square root button
