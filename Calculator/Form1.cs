@@ -13,7 +13,6 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * 2. . button
          * 4. keyboard shortcuts
          * 5. Percent button
          * 6. Square button
@@ -24,6 +23,9 @@ namespace Calculator
          *      - Enable/Disable window buttons accordingly
          * 10. Put 0 instead of null?
          * 13. Add comments?
+         * 14. Can't press equals multiple times
+         * 15. Should show remembered_characters above (like windows calculator)
+         * 16. Result shouldn't need to be scrolled to see full result - eg when E+05
          */
 
 
@@ -126,6 +128,11 @@ namespace Calculator
         private void button_9_Click(object sender, EventArgs e)
         {
             add_character(9);
+        }
+
+        private void button_dot_Click(object sender, EventArgs e)
+        {
+            textBox1.Text += ".";
         }
 
         private void button_divide_Click(object sender, EventArgs e)
