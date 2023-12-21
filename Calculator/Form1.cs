@@ -13,7 +13,6 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * 4. keyboard shortcuts - Works, but have to click a button first
          * 5. Percent button
          * 6. Square button
          * 7. Square root button
@@ -22,10 +21,11 @@ namespace Calculator
          *      - Or allow app to stretch 
          *      - Enable/Disable window buttons accordingly
          * 10. Put 0 instead of null?
-         * 13. Add comments?
-         * 14. Can't press equals multiple times
+         * 13. Add comments
+         * 14. Can't press equals multiple times - press multiple times to repeat equation
          * 15. Should show remembered_characters above (like windows calculator)
          * 16. Result shouldn't need to be scrolled to see full result - eg when E+05
+         * 17. Work out backspace shortcut
          */
 
 
@@ -37,6 +37,8 @@ namespace Calculator
         public Calculator()
         {
             InitializeComponent();
+            // Select a button so buttons are in focus of app - otherwise keyboard shortcuts do not work initially
+            button_equal.Select();
         }
 
         enum Operation_Enum
@@ -184,7 +186,7 @@ namespace Calculator
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (operation_enum != Operation_Enum.Equals) {
+            if (operation_enum != Operation_Enum.Equals && textBox1.Text.Length != 0) {
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
             }
         }
