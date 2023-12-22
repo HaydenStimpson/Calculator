@@ -14,7 +14,6 @@ namespace Calculator
     {
         /* TODO
          * 5. Percent button
-         * 7. Square root button
          * 9. Dont allow size to be changed
          *      - Or allow app to stretch 
          *      - Enable/Disable window buttons accordingly
@@ -163,6 +162,10 @@ namespace Calculator
             textBox1.Text = Math.Pow(double.Parse(textBox1.Text), 2).ToString();
         }
 
+        private void button_square_root_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Math.Sqrt(double.Parse(textBox1.Text)).ToString();
+        }
 
         private void button_equal_Click(object sender, EventArgs e)
         {
@@ -217,7 +220,5 @@ namespace Calculator
                 textBox1.Text = "-" + textBox1.Text;
             }
         }
-
-
     }
 }

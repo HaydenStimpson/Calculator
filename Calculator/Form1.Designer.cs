@@ -50,6 +50,7 @@
             this.button_dot = new System.Windows.Forms.Button();
             this.button_plus_slash_minus = new System.Windows.Forms.Button();
             this.button_square = new System.Windows.Forms.Button();
+            this.button_square_root = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -294,11 +295,23 @@
             this.button_square.UseVisualStyleBackColor = true;
             this.button_square.Click += new System.EventHandler(this.button_square_Click);
             // 
+            // button_square_root
+            // 
+            this.button_square_root.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_square_root.Location = new System.Drawing.Point(145, 127);
+            this.button_square_root.Name = "button_square_root";
+            this.button_square_root.Size = new System.Drawing.Size(75, 75);
+            this.button_square_root.TabIndex = 31;
+            this.button_square_root.Text = "√";
+            this.button_square_root.UseVisualStyleBackColor = true;
+            this.button_square_root.Click += new System.EventHandler(this.button_square_root_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 497);
+            this.Controls.Add(this.button_square_root);
             this.Controls.Add(this.button_square);
             this.Controls.Add(this.button_plus_slash_minus);
             this.Controls.Add(this.button_dot);
@@ -353,6 +366,7 @@
         private System.Windows.Forms.Button button_dot;
         private System.Windows.Forms.Button button_plus_slash_minus;
         private System.Windows.Forms.Button button_square;
+        private System.Windows.Forms.Button button_square_root;
     }
 }
 
