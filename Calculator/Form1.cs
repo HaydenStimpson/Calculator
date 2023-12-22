@@ -14,7 +14,6 @@ namespace Calculator
     {
         /* TODO
          * 5. Percent button
-         * 6. Square button
          * 7. Square root button
          * 9. Dont allow size to be changed
          *      - Or allow app to stretch 
@@ -47,7 +46,7 @@ namespace Calculator
             Subtract, 
             Multiply, 
             Divide, 
-            Equals
+            Equals,
         }
 
         Operation_Enum operation_enum = Operation_Enum.Null;
@@ -157,9 +156,13 @@ namespace Calculator
         private void button_add_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Add;
-
             clear_characters();
         }
+        private void button_square_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = Math.Pow(double.Parse(textBox1.Text), 2).ToString();
+        }
+
 
         private void button_equal_Click(object sender, EventArgs e)
         {
@@ -214,5 +217,7 @@ namespace Calculator
                 textBox1.Text = "-" + textBox1.Text;
             }
         }
+
+
     }
 }

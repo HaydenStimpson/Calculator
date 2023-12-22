@@ -49,6 +49,7 @@
             this.button_CE = new System.Windows.Forms.Button();
             this.button_dot = new System.Windows.Forms.Button();
             this.button_plus_slash_minus = new System.Windows.Forms.Button();
+            this.button_square = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -282,11 +283,23 @@
             this.button_plus_slash_minus.UseVisualStyleBackColor = true;
             this.button_plus_slash_minus.Click += new System.EventHandler(this.button_Add_Slash_Minus_Click);
             // 
+            // button_square
+            // 
+            this.button_square.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_square.Location = new System.Drawing.Point(73, 127);
+            this.button_square.Name = "button_square";
+            this.button_square.Size = new System.Drawing.Size(75, 75);
+            this.button_square.TabIndex = 30;
+            this.button_square.Text = "x²";
+            this.button_square.UseVisualStyleBackColor = true;
+            this.button_square.Click += new System.EventHandler(this.button_square_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 497);
+            this.Controls.Add(this.button_square);
             this.Controls.Add(this.button_plus_slash_minus);
             this.Controls.Add(this.button_dot);
             this.Controls.Add(this.button_CE);
@@ -339,6 +352,7 @@
         private System.Windows.Forms.Button button_CE;
         private System.Windows.Forms.Button button_dot;
         private System.Windows.Forms.Button button_plus_slash_minus;
+        private System.Windows.Forms.Button button_square;
     }
 }
 
