@@ -13,16 +13,13 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * 5. Percent button
-         * 9. Dont allow size to be changed
-         *      - Or allow app to stretch 
-         *      - Enable/Disable window buttons accordingly
-         * 10. Put 0 instead of null?
-         * 13. Add comments
-         * 14. Can't press equals multiple times - press multiple times to repeat equation
-         * 15. Should show remembered_characters above (like windows calculator)
-         * 16. Result shouldn't need to be scrolled to see full result - eg when E+05
-         * 17. Work out backspace shortcut
+         * Percent button
+         * Add comments
+         * Should show remembered_characters above (like windows calculator)
+         * Result shouldn't need to be scrolled to see full result - eg when E+05
+         * 1/x button
+         * Resize textbox when window resized?
+         * Tidy code - group functions etc
          */
 
 
@@ -186,12 +183,11 @@ namespace Calculator
             {
                 textBox1.Text = (remembered_characters / ToOperate).ToString();
             }
-            operation_enum = Operation_Enum.Equals;
         }
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (operation_enum != Operation_Enum.Equals && textBox1.Text.Length != 0) {
+            if (textBox1.Text.Length != 0) {
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
             }
         }
