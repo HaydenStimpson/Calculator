@@ -16,7 +16,6 @@ namespace Calculator
          * 5. Percent button
          * 6. Square button
          * 7. Square root button
-         * 8. +/- button ?
          * 9. Dont allow size to be changed
          *      - Or allow app to stretch 
          *      - Enable/Disable window buttons accordingly
@@ -202,6 +201,18 @@ namespace Calculator
         {
             textBox1.Text = "";
             operation_enum = Operation_Enum.Null;
+        }
+
+        private void button_Add_Slash_Minus_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text[0] == char.Parse("-"))
+            {
+                textBox1.Text = textBox1.Text.Substring(1);
+            }
+            else
+            {
+                textBox1.Text = "-" + textBox1.Text;
+            }
         }
     }
 }

@@ -48,6 +48,7 @@
             this.button_C = new System.Windows.Forms.Button();
             this.button_CE = new System.Windows.Forms.Button();
             this.button_dot = new System.Windows.Forms.Button();
+            this.button_plus_slash_minus = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -270,11 +271,23 @@
             this.button_dot.UseVisualStyleBackColor = true;
             this.button_dot.Click += new System.EventHandler(this.button_dot_Click);
             // 
+            // button_plus_slash_minus
+            // 
+            this.button_plus_slash_minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_plus_slash_minus.Location = new System.Drawing.Point(1, 418);
+            this.button_plus_slash_minus.Name = "button_plus_slash_minus";
+            this.button_plus_slash_minus.Size = new System.Drawing.Size(75, 75);
+            this.button_plus_slash_minus.TabIndex = 29;
+            this.button_plus_slash_minus.Text = "+/-";
+            this.button_plus_slash_minus.UseVisualStyleBackColor = true;
+            this.button_plus_slash_minus.Click += new System.EventHandler(this.button_Add_Slash_Minus_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 497);
+            this.Controls.Add(this.button_plus_slash_minus);
             this.Controls.Add(this.button_dot);
             this.Controls.Add(this.button_CE);
             this.Controls.Add(this.button_C);
@@ -325,6 +338,7 @@
         private System.Windows.Forms.Button button_C;
         private System.Windows.Forms.Button button_CE;
         private System.Windows.Forms.Button button_dot;
+        private System.Windows.Forms.Button button_plus_slash_minus;
     }
 }
 
