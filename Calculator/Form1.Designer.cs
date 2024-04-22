@@ -53,6 +53,7 @@
             this.button_plus_slash_minus = new System.Windows.Forms.Button();
             this.button_0 = new System.Windows.Forms.Button();
             this.button_equal = new System.Windows.Forms.Button();
+            this.button_One_Over = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -350,6 +351,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.button_One_Over, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button_Percent, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_CE, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_dot, 2, 5);
@@ -462,6 +464,21 @@
             this.button_equal.UseVisualStyleBackColor = true;
             this.button_equal.Click += new System.EventHandler(this.button_equal_Click);
             // 
+            // button_One_Over
+            // 
+            this.button_One_Over.AutoSize = true;
+            this.button_One_Over.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_One_Over.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_One_Over.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_One_Over.Location = new System.Drawing.Point(1, 75);
+            this.button_One_Over.Margin = new System.Windows.Forms.Padding(1);
+            this.button_One_Over.Name = "button_One_Over";
+            this.button_One_Over.Size = new System.Drawing.Size(80, 72);
+            this.button_One_Over.TabIndex = 33;
+            this.button_One_Over.Text = "1/x";
+            this.button_One_Over.UseVisualStyleBackColor = true;
+            this.button_One_Over.Click += new System.EventHandler(this.button_One_Over_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -507,6 +524,7 @@
         private System.Windows.Forms.Button button_0;
         private System.Windows.Forms.Button button_equal;
         private System.Windows.Forms.Button button_Percent;
+        private System.Windows.Forms.Button button_One_Over;
     }
 }
 

@@ -13,17 +13,17 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * Add comments
-         * Should show remembered_characters above (like windows calculator)
-         * Result shouldn't need to be scrolled to see full result - eg when E+05
-         * 1/x button
+         * Add comments - explain functions etc in this file
+         * Result shouldn't need to be scrolled to see full result - eg when E+05 - Too many sf can lead to E+ part being cut off
          * Resize textbox when window resized?
-         * Tidy code - group functions etc
+         * Tidy code if needed- group functions etc
          * Fix tab index
          * Have two rows of calculations
          *  - First row is remembered_characters
          *  - Second row is as is
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
+         * Set to zero when resetting
+         * Unit Tests?
          */
 
 
@@ -230,6 +230,16 @@ namespace Calculator
             else
             {
                 textBox1.Text = "0";
+            }
+        }
+
+        private void button_One_Over_Click(object sender, EventArgs e)
+        {
+            if (double.Parse(textBox1.Text) != 0) {
+                textBox1.Text = (1 / double.Parse(textBox1.Text)).ToString();
+            } else
+            {
+                textBox1.Text = "Cannot divide by zero";
             }
         }
     }
