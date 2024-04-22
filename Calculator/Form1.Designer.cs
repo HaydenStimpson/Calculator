@@ -48,6 +48,7 @@
             this.button_square = new System.Windows.Forms.Button();
             this.button_square_root = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_Percent = new System.Windows.Forms.Button();
             this.button_dot = new System.Windows.Forms.Button();
             this.button_plus_slash_minus = new System.Windows.Forms.Button();
             this.button_0 = new System.Windows.Forms.Button();
@@ -349,6 +350,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.button_Percent, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_CE, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_dot, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.button_plus_slash_minus, 0, 5);
@@ -381,8 +383,24 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(328, 444);
             this.tableLayoutPanel1.TabIndex = 32;
+            // 
+            // button_Percent
+            // 
+            this.button_Percent.AutoSize = true;
+            this.button_Percent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_Percent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_Percent.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Percent.Location = new System.Drawing.Point(1, 1);
+            this.button_Percent.Margin = new System.Windows.Forms.Padding(1);
+            this.button_Percent.Name = "button_Percent";
+            this.button_Percent.Size = new System.Drawing.Size(80, 72);
+            this.button_Percent.TabIndex = 32;
+            this.button_Percent.Text = "%";
+            this.button_Percent.UseVisualStyleBackColor = true;
+            this.button_Percent.Click += new System.EventHandler(this.button_Percent_Click);
             // 
             // button_dot
             // 
@@ -488,6 +506,7 @@
         private System.Windows.Forms.Button button_plus_slash_minus;
         private System.Windows.Forms.Button button_0;
         private System.Windows.Forms.Button button_equal;
+        private System.Windows.Forms.Button button_Percent;
     }
 }
 

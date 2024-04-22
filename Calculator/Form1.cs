@@ -13,13 +13,17 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * Percent button
          * Add comments
          * Should show remembered_characters above (like windows calculator)
          * Result shouldn't need to be scrolled to see full result - eg when E+05
          * 1/x button
          * Resize textbox when window resized?
          * Tidy code - group functions etc
+         * Fix tab index
+         * Have two rows of calculations
+         *  - First row is remembered_characters
+         *  - Second row is as is
+         * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
          */
 
 
@@ -214,6 +218,18 @@ namespace Calculator
             else
             {
                 textBox1.Text = "-" + textBox1.Text;
+            }
+        }
+
+        private void button_Percent_Click(object sender, EventArgs e)
+        {
+            if (remembered_characters != 0)
+            {
+                textBox1.Text = (remembered_characters * (double.Parse(textBox1.Text)/100)).ToString();
+            } 
+            else
+            {
+                textBox1.Text = "0";
             }
         }
     }
