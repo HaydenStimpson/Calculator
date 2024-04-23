@@ -17,13 +17,11 @@ namespace Calculator
          * Result shouldn't need to be scrolled to see full result - eg when E+05 - Too many sf can lead to E+ part being cut off
          * Resize textbox when window resized?
          * Tidy code if needed- group functions etc
-         * Have two rows of calculations
-         *  - First row is remembered_characters
-         *  - Second row is as is
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
          *  - Maybe new enum
          *      - Use enum to make CE work properly when '=' was last operation.
          * Set to zero when resetting
+         *  - If zero, then replace it when adding numbers to textbox
          * Unit Tests?
          */
 
