@@ -17,7 +17,6 @@ namespace Calculator
          * Result shouldn't need to be scrolled to see full result - eg when E+05 - Too many sf can lead to E+ part being cut off
          * Resize textbox when window resized?
          * Tidy code if needed- group functions etc
-         * Fix tab index
          * Have two rows of calculations
          *  - First row is remembered_characters
          *  - Second row is as is
