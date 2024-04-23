@@ -22,6 +22,8 @@ namespace Calculator
          *  - First row is remembered_characters
          *  - Second row is as is
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
+         *  - Maybe new enum
+         *      - Use enum to make CE work properly when '=' was last operation.
          * Set to zero when resetting
          * Unit Tests?
          */
@@ -56,22 +58,22 @@ namespace Calculator
         private void add_character(double character)
         {
             if (operation_enum != Operation_Enum.Equals) {
-                textBox1.Text += character;
+                textBoxBottom.Text += character;
             } 
             else
             {
-                textBox1.Text = "";
-                textBox1.Text += character;
+                textBoxBottom.Text = "";
+                textBoxBottom.Text += character;
                 operation_enum = Operation_Enum.Null;
             }
         }
 
-        private void clear_characters()
+        private void clear_bottom_text()
         {
-            if (textBox1.Text.Length != 0)
+            if (textBoxBottom.Text.Length != 0)
             {
-                remembered_characters = Convert.ToDouble(textBox1.Text);
-                textBox1.Text = "";
+                remembered_characters = Convert.ToDouble(textBoxBottom.Text);
+                textBoxBottom.Text = "";
             }
         }
 
@@ -132,92 +134,100 @@ namespace Calculator
 
         private void button_dot_Click(object sender, EventArgs e)
         {
-            textBox1.Text += ".";
+            textBoxBottom.Text += ".";
         }
 
         private void button_divide_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Divide;
-            clear_characters();
+            textBoxTop.Text = textBoxBottom.Text + " / ";
+            clear_bottom_text();
         }
 
         private void button_multiply_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Multiply;
-            clear_characters();
+            textBoxTop.Text = textBoxBottom.Text + " * ";
+            clear_bottom_text();
         }
 
         private void button_subtract_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Subtract;
-            clear_characters();
+            textBoxTop.Text = textBoxBottom.Text + " - ";
+            clear_bottom_text();
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Add;
-            clear_characters();
+            textBoxTop.Text = textBoxBottom.Text + " + ";
+            clear_bottom_text();
         }
         private void button_square_Click(object sender, EventArgs e)
         {
-            textBox1.Text = Math.Pow(double.Parse(textBox1.Text), 2).ToString();
+            textBoxBottom.Text = Math.Pow(double.Parse(textBoxBottom.Text), 2).ToString();
         }
 
         private void button_square_root_Click(object sender, EventArgs e)
         {
-            textBox1.Text = Math.Sqrt(double.Parse(textBox1.Text)).ToString();
+            textBoxBottom.Text = Math.Sqrt(double.Parse(textBoxBottom.Text)).ToString();
         }
 
         private void button_equal_Click(object sender, EventArgs e)
         {
-            double ToOperate = double.Parse(textBox1.Text);
+            double ToOperate = double.Parse(textBoxBottom.Text);
+
+            textBoxTop.Text += textBoxBottom.Text + " = ";
+
             if (operation_enum == Operation_Enum.Add)
             {
-                textBox1.Text = (ToOperate + remembered_characters).ToString();
+                textBoxBottom.Text = (ToOperate + remembered_characters).ToString();
             } 
             else if (operation_enum == Operation_Enum.Subtract)
             {
-                textBox1.Text = (remembered_characters - ToOperate).ToString();
+                textBoxBottom.Text = (remembered_characters - ToOperate).ToString();
             }
             else if (operation_enum == Operation_Enum.Multiply)
             {
-                textBox1.Text = (ToOperate * remembered_characters).ToString();
+                textBoxBottom.Text = (ToOperate * remembered_characters).ToString();
             }
             else if (operation_enum == Operation_Enum.Divide)
             {
-                textBox1.Text = (remembered_characters / ToOperate).ToString();
+                textBoxBottom.Text = (remembered_characters / ToOperate).ToString();
             }
         }
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0) {
-                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            if (textBoxBottom.Text.Length != 0) {
+                textBoxBottom.Text = textBoxBottom.Text.Remove(textBoxBottom.Text.Length - 1);
             }
         }
 
         private void button_C_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            textBoxBottom.Text = "";
+            textBoxTop.Text = "";
             remembered_characters = 0;
             operation_enum = Operation_Enum.Null;
         }
 
         private void button_CE_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            textBoxBottom.Text = "";
             operation_enum = Operation_Enum.Null;
         }
 
         private void button_Add_Slash_Minus_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text[0] == char.Parse("-"))
+            if (textBoxBottom.Text[0] == char.Parse("-"))
             {
-                textBox1.Text = textBox1.Text.Substring(1);
+                textBoxBottom.Text = textBoxBottom.Text.Substring(1);
             }
             else
             {
-                textBox1.Text = "-" + textBox1.Text;
+                textBoxBottom.Text = "-" + textBoxBottom.Text;
             }
         }
 
@@ -225,21 +235,21 @@ namespace Calculator
         {
             if (remembered_characters != 0)
             {
-                textBox1.Text = (remembered_characters * (double.Parse(textBox1.Text)/100)).ToString();
+                textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text)/100)).ToString();
             } 
             else
             {
-                textBox1.Text = "0";
+                textBoxBottom.Text = "0";
             }
         }
 
         private void button_One_Over_Click(object sender, EventArgs e)
         {
-            if (double.Parse(textBox1.Text) != 0) {
-                textBox1.Text = (1 / double.Parse(textBox1.Text)).ToString();
+            if (double.Parse(textBoxBottom.Text) != 0) {
+                textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString();
             } else
             {
-                textBox1.Text = "Cannot divide by zero";
+                textBoxBottom.Text = "Cannot divide by zero";
             }
         }
     }
