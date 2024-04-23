@@ -20,8 +20,6 @@ namespace Calculator
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
          *  - Maybe new enum
          *      - Use enum to make CE work properly when '=' was last operation.
-         * Set to zero when resetting
-         *  - If zero, then replace it when adding numbers to textbox
          * Unit Tests?
          */
 
@@ -55,6 +53,10 @@ namespace Calculator
         private void add_character(double character)
         {
             if (operation_enum != Operation_Enum.Equals) {
+                if (textBoxBottom.Text == "0")
+                {
+                    textBoxBottom.Text = "";
+                }
                 textBoxBottom.Text += character;
             } 
             else
@@ -204,7 +206,7 @@ namespace Calculator
 
         private void button_C_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = "";
+            textBoxBottom.Text = "0";
             textBoxTop.Text = "";
             remembered_characters = 0;
             operation_enum = Operation_Enum.Null;
@@ -212,7 +214,7 @@ namespace Calculator
 
         private void button_CE_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = "";
+            textBoxBottom.Text = "0";
             operation_enum = Operation_Enum.Null;
         }
 

@@ -491,6 +491,7 @@
             this.textBoxBottom.Size = new System.Drawing.Size(334, 45);
             this.textBoxBottom.TabIndex = 33;
             this.textBoxBottom.TabStop = false;
+            this.textBoxBottom.Text = "0";
             // 
             // Calculator
             // 
