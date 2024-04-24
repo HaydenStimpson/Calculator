@@ -15,19 +15,20 @@ namespace Calculator
         /* TODO
          * Add comments - explain functions etc in this file
          * Result shouldn't need to be scrolled to see full result - eg when E+05 - Too many sf can lead to E+ part being cut off
-         * Resize textbox when window resized?
          * Tidy code if needed- group functions etc
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
          *  - Maybe new enum
          *      - Use enum to make CE work properly when '=' was last operation.
          * Unit Tests?
+         * Can we have the number seperately from the textbox, then update the textbox whenever something changes 
+         *  - So we aren't converting back and forth from decimal and string
          */
 
 
 
 
 
-        double remembered_characters;
+        decimal remembered_characters;
         
         public Calculator()
         {
@@ -50,20 +51,22 @@ namespace Calculator
 
 
 
-        private void add_character(double character)
+        private void add_character(decimal character)
         {
-            if (operation_enum != Operation_Enum.Equals) {
-                if (textBoxBottom.Text == "0")
+            if (textBoxBottom.Text.Length < 18) {
+                if (operation_enum != Operation_Enum.Equals) {
+                    if (textBoxBottom.Text == "0")
+                    {
+                        textBoxBottom.Text = "";
+                    }
+                    textBoxBottom.Text += character;
+                }
+                else
                 {
                     textBoxBottom.Text = "";
+                    textBoxBottom.Text += character;
+                    operation_enum = Operation_Enum.Null;
                 }
-                textBoxBottom.Text += character;
-            } 
-            else
-            {
-                textBoxBottom.Text = "";
-                textBoxBottom.Text += character;
-                operation_enum = Operation_Enum.Null;
             }
         }
 
@@ -71,7 +74,7 @@ namespace Calculator
         {
             if (textBoxBottom.Text.Length != 0)
             {
-                remembered_characters = Convert.ToDouble(textBoxBottom.Text);
+                remembered_characters = Convert.ToDecimal(textBoxBottom.Text);
                 textBoxBottom.Text = "";
             }
         }
@@ -165,17 +168,17 @@ namespace Calculator
         }
         private void button_square_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = Math.Pow(double.Parse(textBoxBottom.Text), 2).ToString();
+            textBoxBottom.Text = Math.Pow((double)decimal.Parse(textBoxBottom.Text), 2).ToString();
         }
 
         private void button_square_root_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = Math.Sqrt(double.Parse(textBoxBottom.Text)).ToString();
+            textBoxBottom.Text = Math.Sqrt((double)decimal.Parse(textBoxBottom.Text)).ToString();
         }
 
         private void button_equal_Click(object sender, EventArgs e)
         {
-            double ToOperate = double.Parse(textBoxBottom.Text);
+            decimal ToOperate = decimal.Parse(textBoxBottom.Text);
 
             textBoxTop.Text += textBoxBottom.Text + " = ";
 
@@ -234,7 +237,7 @@ namespace Calculator
         {
             if (remembered_characters != 0)
             {
-                textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text)/100)).ToString();
+                textBoxBottom.Text = (remembered_characters * (decimal.Parse(textBoxBottom.Text)/100)).ToString();
             } 
             else
             {
@@ -244,8 +247,8 @@ namespace Calculator
 
         private void button_One_Over_Click(object sender, EventArgs e)
         {
-            if (double.Parse(textBoxBottom.Text) != 0) {
-                textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString();
+            if (decimal.Parse(textBoxBottom.Text) != 0) {
+                textBoxBottom.Text = (1 / decimal.Parse(textBoxBottom.Text)).ToString();
             } else
             {
                 textBoxBottom.Text = "Cannot divide by zero";
