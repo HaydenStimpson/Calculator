@@ -14,14 +14,10 @@ namespace Calculator
     {
         /* TODO
          * Add comments - explain functions etc in this file
-         * Result shouldn't need to be scrolled to see full result - eg when E+05 - Too many sf can lead to E+ part being cut off
          * Tidy code if needed- group functions etc
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
          *  - Maybe new enum
          *      - Use enum to make CE work properly when '=' was last operation.
-         * Unit Tests?
-         * Can we have the number seperately from the textbox, then update the textbox whenever something changes 
-         *  - So we aren't converting back and forth from double and string
          */
 
 
@@ -168,12 +164,13 @@ namespace Calculator
         }
         private void button_square_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = Math.Pow((double)double.Parse(textBoxBottom.Text), 2).ToString();
+            // "G12" is number of significant figures used when the number has an 'E'
+            textBoxBottom.Text = Math.Pow((double)double.Parse(textBoxBottom.Text), 2).ToString("G12");
         }
 
         private void button_square_root_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = Math.Sqrt((double)double.Parse(textBoxBottom.Text)).ToString();
+            textBoxBottom.Text = Math.Sqrt((double)double.Parse(textBoxBottom.Text)).ToString("G12");
         }
 
         private void button_equal_Click(object sender, EventArgs e)
@@ -184,19 +181,19 @@ namespace Calculator
 
             if (operation_enum == Operation_Enum.Add)
             {
-                textBoxBottom.Text = (ToOperate + remembered_characters).ToString();
+                textBoxBottom.Text = (ToOperate + remembered_characters).ToString("G12");
             } 
             else if (operation_enum == Operation_Enum.Subtract)
             {
-                textBoxBottom.Text = (remembered_characters - ToOperate).ToString();
+                textBoxBottom.Text = (remembered_characters - ToOperate).ToString("G12");
             }
             else if (operation_enum == Operation_Enum.Multiply)
             {
-                textBoxBottom.Text = (ToOperate * remembered_characters).ToString();
+                textBoxBottom.Text = (ToOperate * remembered_characters).ToString("G12");
             }
             else if (operation_enum == Operation_Enum.Divide)
             {
-                textBoxBottom.Text = (remembered_characters / ToOperate).ToString();
+                textBoxBottom.Text = (remembered_characters / ToOperate).ToString("G12");
             }
         }
 
@@ -237,7 +234,7 @@ namespace Calculator
         {
             if (remembered_characters != 0)
             {
-                textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text)/100)).ToString();
+                textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text)/100)).ToString("G12");
             } 
             else
             {
@@ -248,7 +245,7 @@ namespace Calculator
         private void button_One_Over_Click(object sender, EventArgs e)
         {
             if (double.Parse(textBoxBottom.Text) != 0) {
-                textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString();
+                textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString("G12");
             } else
             {
                 textBoxBottom.Text = "Cannot divide by zero";
