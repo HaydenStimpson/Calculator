@@ -132,7 +132,9 @@ namespace Calculator
 
         private void button_dot_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text += ".";
+            if (!textBoxBottom.Text.Contains(".")) {
+                textBoxBottom.Text += ".";
+            }
         }
 
         private void button_divide_Click(object sender, EventArgs e)
