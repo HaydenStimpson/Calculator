@@ -14,10 +14,11 @@ namespace Calculator
     {
         /* TODO
          * Add comments - explain functions etc in this file
-         * Tidy code if needed- group functions etc
+         * Tidy code if needed- group functions etc, rename vars
          * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
          *  - Maybe new enum
          *      - Use enum to make CE work properly when '=' was last operation.
+         * Fix repeating pressing equals not working properly
          */
 
 
@@ -179,7 +180,9 @@ namespace Calculator
         {
             double ToOperate = double.Parse(textBoxBottom.Text);
 
-            textBoxTop.Text += textBoxBottom.Text + " = ";
+            if (!textBoxTop.Text.Contains('=')) {
+                textBoxTop.Text += textBoxBottom.Text + " = ";
+            } 
 
             if (operation_enum == Operation_Enum.Add)
             {
