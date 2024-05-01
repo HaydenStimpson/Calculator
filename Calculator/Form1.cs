@@ -16,9 +16,7 @@ namespace Calculator
         /* TODO
          * Add comments - explain functions etc in this file
          * Tidy code if needed- group functions etc, rename vars
-         * Pressing '=' should mean that next time numbers are inputted, they replace prev calcs.
-         *  - Maybe new enum
-         *      - Use enum to make CE work properly when '=' was last operation.
+         * Pressing Enter on keyboard repeats last pressed key instead of only being '='
          */
 
 
@@ -60,6 +58,7 @@ namespace Calculator
                 }
                 else
                 {
+                    textBoxTop.Text = "";
                     textBoxBottom.Text = "";
                     textBoxBottom.Text += character;
                     operation_enum = Operation_Enum.Null;
