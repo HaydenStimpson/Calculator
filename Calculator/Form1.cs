@@ -16,7 +16,8 @@ namespace Calculator
         /* TODO
          * Add comments - explain functions etc in this file
          * Tidy code if needed- group functions etc, rename vars
-         * Pressing Enter on keyboard repeats last pressed key instead of only being '='
+         * eg 3 + 6 + 4 doesnt work - just does 6 + 4
+         * eg 3 + =, results in crash
          */
 
 
@@ -64,6 +65,7 @@ namespace Calculator
                     operation_enum = Operation_Enum.Null;
                 }
             }
+            button_equal.Focus();
         }
 
         private void clear_bottom_text()

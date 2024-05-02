@@ -55,6 +55,7 @@
             this.button_plus_slash_minus = new System.Windows.Forms.Button();
             this.button_0 = new System.Windows.Forms.Button();
             this.button_equal = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -548,6 +549,7 @@
         private System.Windows.Forms.Button button_Percent;
         private System.Windows.Forms.Button button_One_Over;
         private System.Windows.Forms.TextBox textBoxBottom;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
