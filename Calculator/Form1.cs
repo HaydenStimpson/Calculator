@@ -14,14 +14,12 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
+         * Add readme file
          * Add comments - explain functions etc in this file
-         * Tidy code if needed- group functions etc, rename vars
-         * eg 3 + 6 + 4 doesnt work - just does 6 + 4
+         * Tidy code if needed - group functions etc, rename vars
          * eg 3 + =, results in crash
+         * Convert calculating functions to read from boxes instead of using 'remembered_characters'
          */
-
-
-
 
 
         double remembered_characters;
@@ -142,28 +140,56 @@ namespace Calculator
         private void button_divide_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Divide;
-            textBoxTop.Text = textBoxBottom.Text + " / ";
+            if (textBoxTop.Text != "")
+            {
+                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " / ";
+            }
+            else
+            {
+                textBoxTop.Text = textBoxBottom.Text + " / ";
+            }
             clear_bottom_text();
         }
 
         private void button_multiply_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Multiply;
-            textBoxTop.Text = textBoxBottom.Text + " * ";
+            if (textBoxTop.Text != "")
+            {
+                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " * ";
+            }
+            else
+            {
+                textBoxTop.Text = textBoxBottom.Text + " * ";
+            }
             clear_bottom_text();
         }
 
         private void button_subtract_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Subtract;
-            textBoxTop.Text = textBoxBottom.Text + " - ";
+            if (textBoxTop.Text != "")
+            {
+                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " - ";
+            }
+            else
+            {
+                textBoxTop.Text = textBoxBottom.Text + " - ";
+            }
             clear_bottom_text();
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
             operation_enum = Operation_Enum.Add;
-            textBoxTop.Text = textBoxBottom.Text + " + ";
+            if (textBoxTop.Text != "")
+            {
+                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " + ";
+            }
+            else
+            {
+                textBoxTop.Text = textBoxBottom.Text + " + ";
+            }
             clear_bottom_text();
         }
         private void button_square_Click(object sender, EventArgs e)
@@ -184,6 +210,8 @@ namespace Calculator
             if (!textBoxTop.Text.Contains('=')) {
                 textBoxTop.Text += textBoxBottom.Text + " = ";
             } 
+
+
 
             // Convert to switch statement
             if (operation_enum == Operation_Enum.Add)
