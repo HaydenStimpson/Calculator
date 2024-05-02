@@ -205,61 +205,62 @@ namespace Calculator
 
         private void button_equal_Click(object sender, EventArgs e)
         {
-            double ToOperate = double.Parse(textBoxBottom.Text);
-
-            if (!textBoxTop.Text.Contains('=')) {
-                textBoxTop.Text += textBoxBottom.Text + " = ";
-            } 
-
-
-
-            // Convert to switch statement
-            if (operation_enum == Operation_Enum.Add)
+            if (textBoxBottom.Text != "")
             {
-                textBoxBottom.Text = (ToOperate + remembered_characters).ToString("G10");
-            } 
-            else if (operation_enum == Operation_Enum.Subtract)
-            {
-                textBoxBottom.Text = (remembered_characters - ToOperate).ToString("G10");
-            }
-            else if (operation_enum == Operation_Enum.Multiply)
-            {
-                textBoxBottom.Text = (ToOperate * remembered_characters).ToString("G10");
-            }
-            else if (operation_enum == Operation_Enum.Divide)
-            {
-                textBoxBottom.Text = (remembered_characters / ToOperate).ToString("G10");
-            }
-            else if (operation_enum == Operation_Enum.Equals)
-            {
-                // Repeat previous eqaution
-                // Fix top text box
-                string[] textBoxTopSplit = textBoxTop.Text.Split(' '); 
-                string finalOperateNumber = textBoxTopSplit[textBoxTopSplit.Length - 3]; 
-                string finalOperator = textBoxTopSplit[textBoxTopSplit.Length - 4];
-                string originalResult = textBoxBottom.Text;
+                double ToOperate = double.Parse(textBoxBottom.Text);
 
-                textBoxTop.Text = originalResult + " " + finalOperator + " " + finalOperateNumber + " = ";
-
-
-                // Calculate new result
-                switch(finalOperator)
-                {
-                    case "+":
-                        textBoxBottom.Text = (Convert.ToDouble(originalResult) + Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                        break;
-                    case "-":
-                        textBoxBottom.Text = (Convert.ToDouble(originalResult) - Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                        break;
-                    case "*":
-                        textBoxBottom.Text = (Convert.ToDouble(originalResult) * Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                        break;
-                    case "/":
-                        textBoxBottom.Text = (Convert.ToDouble(originalResult) / Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                        break;
+                if (!textBoxTop.Text.Contains('=')) {
+                    textBoxTop.Text += textBoxBottom.Text + " = ";
                 }
+
+                // Convert to switch statement
+                if (operation_enum == Operation_Enum.Add)
+                {
+                    textBoxBottom.Text = (ToOperate + remembered_characters).ToString("G10");
+                }
+                else if (operation_enum == Operation_Enum.Subtract)
+                {
+                    textBoxBottom.Text = (remembered_characters - ToOperate).ToString("G10");
+                }
+                else if (operation_enum == Operation_Enum.Multiply)
+                {
+                    textBoxBottom.Text = (ToOperate * remembered_characters).ToString("G10");
+                }
+                else if (operation_enum == Operation_Enum.Divide)
+                {
+                    textBoxBottom.Text = (remembered_characters / ToOperate).ToString("G10");
+                }
+                else if (operation_enum == Operation_Enum.Equals)
+                {
+                    // Repeat previous eqaution
+                    // Fix top text box
+                    string[] textBoxTopSplit = textBoxTop.Text.Split(' ');
+                    string finalOperateNumber = textBoxTopSplit[textBoxTopSplit.Length - 3];
+                    string finalOperator = textBoxTopSplit[textBoxTopSplit.Length - 4];
+                    string originalResult = textBoxBottom.Text;
+
+                    textBoxTop.Text = originalResult + " " + finalOperator + " " + finalOperateNumber + " = ";
+
+
+                    // Calculate new result
+                    switch (finalOperator)
+                    {
+                        case "+":
+                            textBoxBottom.Text = (Convert.ToDouble(originalResult) + Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                            break;
+                        case "-":
+                            textBoxBottom.Text = (Convert.ToDouble(originalResult) - Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                            break;
+                        case "*":
+                            textBoxBottom.Text = (Convert.ToDouble(originalResult) * Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                            break;
+                        case "/":
+                            textBoxBottom.Text = (Convert.ToDouble(originalResult) / Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                            break;
+                    }
+                }
+                operation_enum = Operation_Enum.Equals;
             }
-            operation_enum = Operation_Enum.Equals;
         }
 
         private void button_delete_Click(object sender, EventArgs e)
