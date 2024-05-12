@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -14,13 +7,13 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * Add readme file
          * Add comments - explain functions etc in this file
          * Tidy code if needed - group functions etc, rename vars
-         * eg 3 + =, results in crash
          * Convert calculating functions to read from boxes instead of using 'remembered_characters'
+         *      - When doing eg 3 + 6 - 4, work out as 3+6, 9-4 ?
+         *      - Or do calculation as entire string?
+         * Pressing function after equals doesnt work
          */
-
 
         double remembered_characters;
         
@@ -75,12 +68,14 @@ namespace Calculator
             }
         }
 
-
-
-
-
-
-
+        // Backspace shortcut key needs to be implemented seperately - mnemonic does not work with backspace character
+        private void Calculator_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                button_delete_Click(sender, e);
+            }
+        }
 
         private void button_0_Click(object sender, EventArgs e)
         {

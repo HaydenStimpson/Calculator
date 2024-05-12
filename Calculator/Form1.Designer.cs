@@ -1,4 +1,6 @@
-﻿namespace Calculator
+﻿using System.Windows.Forms;
+
+namespace Calculator
 {
     partial class Calculator
     {
@@ -515,9 +517,9 @@
             this.Text = "Calculator";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(Calculator_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
