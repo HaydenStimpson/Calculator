@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -9,10 +10,12 @@ namespace Calculator
         /* TODO
          * Add comments - explain functions etc in this file
          * Tidy code if needed - group functions etc, rename vars
-         * Convert calculating functions to read from boxes instead of using 'remembered_characters'
-         *      - When doing eg 3 + 6 - 4, work out as 3+6, 9-4 ?
-         *      - Or do calculation as entire string?
          * Pressing function after equals doesnt work
+         * Pressing '+' multiple times shouldn't change anything
+         * Improve visuals
+         *      - Icon
+         *      - Shading?
+         *      - Bezels?
          */
 
         double remembered_characters;
@@ -137,7 +140,15 @@ namespace Calculator
             operation_enum = Operation_Enum.Divide;
             if (textBoxTop.Text != "")
             {
-                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " / ";
+                if (textBoxTop.Text.Split(' ').Length > 1)
+                {
+                    button_equal_function(sender, e, false);
+                    textBoxTop.Text = textBoxBottom.Text + " / ";
+                }
+                else
+                {
+                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " / ";
+                }
             }
             else
             {
@@ -151,7 +162,15 @@ namespace Calculator
             operation_enum = Operation_Enum.Multiply;
             if (textBoxTop.Text != "")
             {
-                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " * ";
+                if (textBoxTop.Text.Split(' ').Length > 1)
+                {
+                    button_equal_function(sender, e, false);
+                    textBoxTop.Text = textBoxBottom.Text + " * ";
+                }
+                else
+                {
+                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " * ";
+                }
             }
             else
             {
@@ -165,7 +184,15 @@ namespace Calculator
             operation_enum = Operation_Enum.Subtract;
             if (textBoxTop.Text != "")
             {
-                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " - ";
+                if (textBoxTop.Text.Split(' ').Length > 1)
+                {
+                    button_equal_function(sender, e, false);
+                    textBoxTop.Text = textBoxBottom.Text + " - ";
+                }
+                else
+                {
+                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " - ";
+                }
             }
             else
             {
@@ -179,7 +206,15 @@ namespace Calculator
             operation_enum = Operation_Enum.Add;
             if (textBoxTop.Text != "")
             {
-                textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " + ";
+                if (textBoxTop.Text.Split(' ').Length > 1)
+                {
+                    button_equal_function(sender, e, false);
+                    textBoxTop.Text = textBoxBottom.Text + " + ";
+                }
+                else
+                {
+                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " + ";
+                }
             }
             else
             {
@@ -200,11 +235,18 @@ namespace Calculator
 
         private void button_equal_Click(object sender, EventArgs e)
         {
+            button_equal_function(sender, e, true);
+        }
+
+        // Seperate this so function can be called by other button clicks
+        private void button_equal_function(object sender, EventArgs e, bool equalButtonClicked = true)
+        {
             if (textBoxBottom.Text != "")
             {
                 double ToOperate = double.Parse(textBoxBottom.Text);
 
-                if (!textBoxTop.Text.Contains('=')) {
+                if (!textBoxTop.Text.Contains('=') && equalButtonClicked)
+                {
                     textBoxTop.Text += textBoxBottom.Text + " = ";
                 }
 
@@ -254,7 +296,9 @@ namespace Calculator
                             break;
                     }
                 }
-                operation_enum = Operation_Enum.Equals;
+                if (equalButtonClicked) {
+                    operation_enum = Operation_Enum.Equals;
+                }
             }
         }
 
