@@ -10,8 +10,6 @@ namespace Calculator
         /* TODO
          * Add comments - explain functions etc in this file
          * Tidy code if needed - group functions etc, rename vars
-         * Pressing function after equals doesnt work
-         * Pressing '+' multiple times shouldn't change anything
          * Improve visuals
          *      - Icon
          *      - Shading?
@@ -137,90 +135,102 @@ namespace Calculator
 
         private void button_divide_Click(object sender, EventArgs e)
         {
-            operation_enum = Operation_Enum.Divide;
-            if (textBoxTop.Text != "")
+            if (textBoxBottom.Text != "")
             {
-                if (textBoxTop.Text.Split(' ').Length > 1)
+                operation_enum = Operation_Enum.Divide;
+                if (textBoxTop.Text != "")
                 {
-                    button_equal_function(sender, e, false);
-                    textBoxTop.Text = textBoxBottom.Text + " / ";
+                    if (textBoxTop.Text.Split(' ').Length > 1)
+                    {
+                        button_equal_function(sender, e, false);
+                        textBoxTop.Text = textBoxBottom.Text + " / ";
+                    }
+                    else
+                    {
+                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " / ";
+                    }
                 }
                 else
                 {
-                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " / ";
+                    textBoxTop.Text = textBoxBottom.Text + " / ";
                 }
+                clear_bottom_text();
             }
-            else
-            {
-                textBoxTop.Text = textBoxBottom.Text + " / ";
-            }
-            clear_bottom_text();
         }
 
         private void button_multiply_Click(object sender, EventArgs e)
         {
-            operation_enum = Operation_Enum.Multiply;
-            if (textBoxTop.Text != "")
+            if (textBoxBottom.Text != "")
             {
-                if (textBoxTop.Text.Split(' ').Length > 1)
+                operation_enum = Operation_Enum.Multiply;
+                if (textBoxTop.Text != "")
                 {
-                    button_equal_function(sender, e, false);
-                    textBoxTop.Text = textBoxBottom.Text + " * ";
+                    if (textBoxTop.Text.Split(' ').Length > 1)
+                    {
+                        button_equal_function(sender, e, false);
+                        textBoxTop.Text = textBoxBottom.Text + " * ";
+                    }
+                    else
+                    {
+                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " * ";
+                    }
                 }
                 else
                 {
-                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " * ";
+                    textBoxTop.Text = textBoxBottom.Text + " * ";
                 }
+                clear_bottom_text();
             }
-            else
-            {
-                textBoxTop.Text = textBoxBottom.Text + " * ";
-            }
-            clear_bottom_text();
         }
 
         private void button_subtract_Click(object sender, EventArgs e)
         {
-            operation_enum = Operation_Enum.Subtract;
-            if (textBoxTop.Text != "")
+            if (textBoxBottom.Text != "")
             {
-                if (textBoxTop.Text.Split(' ').Length > 1)
+                operation_enum = Operation_Enum.Subtract;
+                if (textBoxTop.Text != "")
                 {
-                    button_equal_function(sender, e, false);
-                    textBoxTop.Text = textBoxBottom.Text + " - ";
+                    if (textBoxTop.Text.Split(' ').Length > 1)
+                    {
+                        button_equal_function(sender, e, false);
+                        textBoxTop.Text = textBoxBottom.Text + " - ";
+                    }
+                    else
+                    {
+                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " - ";
+                    }
                 }
                 else
                 {
-                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " - ";
+                    textBoxTop.Text = textBoxBottom.Text + " - ";
                 }
+                clear_bottom_text();
             }
-            else
-            {
-                textBoxTop.Text = textBoxBottom.Text + " - ";
-            }
-            clear_bottom_text();
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            operation_enum = Operation_Enum.Add;
-            if (textBoxTop.Text != "")
+            if (textBoxBottom.Text != "")
             {
-                if (textBoxTop.Text.Split(' ').Length > 1)
+                operation_enum = Operation_Enum.Add;
+                if (textBoxTop.Text != "")
                 {
-                    button_equal_function(sender, e, false);
-                    textBoxTop.Text = textBoxBottom.Text + " + ";
+                    if (textBoxTop.Text.Split(' ').Length > 1)
+                    {
+                        button_equal_function(sender, e, false);
+                        textBoxTop.Text = textBoxBottom.Text + " + ";
+                    }
+                    else
+                    {
+                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " + ";
+                    }
                 }
                 else
                 {
-                    textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " + ";
+                    textBoxTop.Text = textBoxBottom.Text + " + ";
                 }
+                clear_bottom_text();
             }
-            else
-            {
-                textBoxTop.Text = textBoxBottom.Text + " + ";
-            }
-            clear_bottom_text();
         }
         private void button_square_Click(object sender, EventArgs e)
         {
