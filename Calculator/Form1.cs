@@ -129,7 +129,7 @@ namespace Calculator
 
         private void button_dot_Click(object sender, EventArgs e)
         {
-            if (!textBoxBottom.Text.Contains(".")) {
+            if (!textBoxBottom.Text.Contains(".") && operation_enum != Operation_Enum.Equals) {
                 if (textBoxBottom.Text == "")
                 {
                     textBoxBottom.Text = "0.";
