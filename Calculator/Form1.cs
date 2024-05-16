@@ -360,13 +360,16 @@ namespace Calculator
 
         private void button_Add_Slash_Minus_Click(object sender, EventArgs e)
         {
-            if (textBoxBottom.Text[0] == char.Parse("-"))
+            if (textBoxBottom.Text != "")
             {
-                textBoxBottom.Text = textBoxBottom.Text.Substring(1);
-            }
-            else
-            {
-                textBoxBottom.Text = "-" + textBoxBottom.Text;
+                if (textBoxBottom.Text[0] == char.Parse("-"))
+                {
+                    textBoxBottom.Text = textBoxBottom.Text.Substring(1);
+                }
+                else
+                {
+                    textBoxBottom.Text = "-" + textBoxBottom.Text;
+                }
             }
         }
 
