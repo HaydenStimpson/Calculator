@@ -130,7 +130,14 @@ namespace Calculator
         private void button_dot_Click(object sender, EventArgs e)
         {
             if (!textBoxBottom.Text.Contains(".")) {
-                textBoxBottom.Text += ".";
+                if (textBoxBottom.Text == "")
+                {
+                    textBoxBottom.Text = "0.";
+                } 
+                else
+                {
+                    textBoxBottom.Text += ".";
+                }
             }
         }
 
