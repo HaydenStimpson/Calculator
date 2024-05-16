@@ -259,13 +259,18 @@ namespace Calculator
         }
         private void button_square_Click(object sender, EventArgs e)
         {
-            // "G10" is number of significant figures used when the number has an 'E'
-            textBoxBottom.Text = Math.Pow((double)double.Parse(textBoxBottom.Text), 2).ToString("G10");
+            if (textBoxBottom.Text != "") {
+                // "G10" is number of significant figures used when the number has an 'E'
+                textBoxBottom.Text = Math.Pow((double)double.Parse(textBoxBottom.Text), 2).ToString("G10");
+            }
         }
 
         private void button_square_root_Click(object sender, EventArgs e)
         {
-            textBoxBottom.Text = Math.Sqrt((double)double.Parse(textBoxBottom.Text)).ToString("G10");
+            if (textBoxBottom.Text != "")
+            {
+                textBoxBottom.Text = Math.Sqrt((double)double.Parse(textBoxBottom.Text)).ToString("G10");
+            }
         }
 
         private void button_equal_Click(object sender, EventArgs e)
@@ -375,23 +380,31 @@ namespace Calculator
 
         private void button_Percent_Click(object sender, EventArgs e)
         {
-            if (remembered_characters != 0)
+            if (textBoxBottom.Text != "")
             {
-                textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text)/100)).ToString("G10");
-            } 
-            else
-            {
-                textBoxBottom.Text = "0";
+                if (remembered_characters != 0)
+                {
+                    textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text) / 100)).ToString("G10");
+                }
+                else
+                {
+                    textBoxBottom.Text = "0";
+                }
             }
         }
 
         private void button_One_Over_Click(object sender, EventArgs e)
         {
-            if (double.Parse(textBoxBottom.Text) != 0) {
-                textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString("G10");
-            } else
+            if (textBoxBottom.Text != "")
             {
-                textBoxBottom.Text = "Cannot divide by zero";
+                if (double.Parse(textBoxBottom.Text) != 0)
+                {
+                    textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString("G10");
+                }
+                else
+                {
+                    textBoxBottom.Text = "Cannot divide by zero";
+                }
             }
         }
     }
