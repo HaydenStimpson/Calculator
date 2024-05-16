@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -10,10 +11,6 @@ namespace Calculator
         /* TODO
          * Add comments - explain functions etc in this file
          * Tidy code if needed - group functions etc, rename vars
-         * Unable to replace function. Eg '+' then '-' should swap to minusing instead of adding
-         *      - Fix by doing function by 0 or 1?
-         *      - Eg If going from + to -, just insert a 0 in bottom text?
-         *      - More general to remove final function in equation and change enum?
          * Improve visuals
          *      - Icon
          *      - Shading?
@@ -157,9 +154,15 @@ namespace Calculator
                 {
                     textBoxTop.Text = textBoxBottom.Text + " / ";
                 }
-                operation_enum = Operation_Enum.Divide;
-                clear_bottom_text();
             }
+            else
+            {
+                StringBuilder sb = new StringBuilder(textBoxTop.Text);
+                sb[sb.Length - 2] = '/';
+                textBoxTop.Text = sb.ToString();
+            }
+            operation_enum = Operation_Enum.Divide;
+            clear_bottom_text();
         }
 
         private void button_multiply_Click(object sender, EventArgs e)
@@ -182,9 +185,15 @@ namespace Calculator
                 {
                     textBoxTop.Text = textBoxBottom.Text + " * ";
                 }
-                operation_enum = Operation_Enum.Multiply;
-                clear_bottom_text();
             }
+            else
+            {
+                StringBuilder sb = new StringBuilder(textBoxTop.Text);
+                sb[sb.Length - 2] = '*';
+                textBoxTop.Text = sb.ToString();
+            }
+            operation_enum = Operation_Enum.Multiply;
+            clear_bottom_text();
         }
 
         private void button_subtract_Click(object sender, EventArgs e)
@@ -207,9 +216,15 @@ namespace Calculator
                 {
                     textBoxTop.Text = textBoxBottom.Text + " - ";
                 }
-                operation_enum = Operation_Enum.Subtract;
-                clear_bottom_text();
             }
+            else
+            {
+                StringBuilder sb = new StringBuilder(textBoxTop.Text);
+                sb[sb.Length - 2] = '-';
+                textBoxTop.Text = sb.ToString();
+            }
+            operation_enum = Operation_Enum.Subtract;
+            clear_bottom_text();
         }
 
         private void button_add_Click(object sender, EventArgs e)
@@ -232,9 +247,15 @@ namespace Calculator
                 {
                     textBoxTop.Text = textBoxBottom.Text + " + ";
                 }
-                operation_enum = Operation_Enum.Add;
-                clear_bottom_text();
             }
+            else
+            {
+                StringBuilder sb = new StringBuilder(textBoxTop.Text);
+                sb[sb.Length - 2] = '+';
+                textBoxTop.Text = sb.ToString();
+            }
+            operation_enum = Operation_Enum.Add;
+            clear_bottom_text();
         }
         private void button_square_Click(object sender, EventArgs e)
         {
