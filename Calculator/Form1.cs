@@ -10,7 +10,8 @@ namespace Calculator
     {
         /* TODO
          * Tidy code if needed - group functions etc, rename vars, combine repeated code if it exists
-         * Can we combine all operation code with enum parameters?
+         * Make sure everything follows coding conventions - https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+         * If adding character and only 0 or 0., replace with new number
          * Improve visuals
          *      - Icon
          *      - Shading?
@@ -29,12 +30,12 @@ namespace Calculator
         // Enumerator to determine what operation should be done when equals is pressed. Starts as null.
         enum Operation_Enum
         {
-            Null,
-            Add, 
-            Subtract, 
-            Multiply, 
-            Divide, 
-            Equals,
+            Null = ' ',
+            Add = '+', 
+            Subtract = '-', 
+            Multiply = '*', 
+            Divide = '/', 
+            Equals = '=',
         }
         Operation_Enum operation_enum = Operation_Enum.Null;
 
@@ -149,95 +150,23 @@ namespace Calculator
         // Functions to prepare text box and set enum for basic operations.
         private void button_divide_Click(object sender, EventArgs e)
         {
-            if (textBoxBottom.Text != "")
-            {
-                if (textBoxTop.Text != "")
-                {
-                    if (textBoxTop.Text.Split(' ').Length > 1)
-                    {
-                        button_equal_function(sender, e, false);
-                        textBoxTop.Text = textBoxBottom.Text + " / ";
-                    }
-                    else
-                    {
-                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " / ";
-                    }
-                }
-                else
-                {
-                    textBoxTop.Text = textBoxBottom.Text + " / ";
-                }
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder(textBoxTop.Text);
-                sb[sb.Length - 2] = '/';
-                textBoxTop.Text = sb.ToString();
-            }
-            operation_enum = Operation_Enum.Divide;
-            clear_bottom_text();
+            perform_Operation(sender, e, Operation_Enum.Divide);
         }
         private void button_multiply_Click(object sender, EventArgs e)
         {
-            if (textBoxBottom.Text != "")
-            {
-                if (textBoxTop.Text != "")
-                {
-                    if (textBoxTop.Text.Split(' ').Length > 1)
-                    {
-                        button_equal_function(sender, e, false);
-                        textBoxTop.Text = textBoxBottom.Text + " * ";
-                    }
-                    else
-                    {
-                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " * ";
-                    }
-                }
-                else
-                {
-                    textBoxTop.Text = textBoxBottom.Text + " * ";
-                }
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder(textBoxTop.Text);
-                sb[sb.Length - 2] = '*';
-                textBoxTop.Text = sb.ToString();
-            }
-            operation_enum = Operation_Enum.Multiply;
-            clear_bottom_text();
+            perform_Operation(sender, e, Operation_Enum.Multiply);
         }
         private void button_subtract_Click(object sender, EventArgs e)
         {
-            if (textBoxBottom.Text != "")
-            {
-                if (textBoxTop.Text != "")
-                {
-                    if (textBoxTop.Text.Split(' ').Length > 1)
-                    {
-                        button_equal_function(sender, e, false);
-                        textBoxTop.Text = textBoxBottom.Text + " - ";
-                    }
-                    else
-                    {
-                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " - ";
-                    }
-                }
-                else
-                {
-                    textBoxTop.Text = textBoxBottom.Text + " - ";
-                }
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder(textBoxTop.Text);
-                sb[sb.Length - 2] = '-';
-                textBoxTop.Text = sb.ToString();
-            }
-            operation_enum = Operation_Enum.Subtract;
-            clear_bottom_text();
+            perform_Operation(sender, e, Operation_Enum.Subtract);
         }
         private void button_add_Click(object sender, EventArgs e)
+        {
+            perform_Operation(sender, e, Operation_Enum.Add);
+        }
+
+        // New enum needs to be set before adjusting the text boxes but after button_equal_function has been called if needed.
+        private void perform_Operation(object sender, EventArgs e, Operation_Enum newEnum)
         {
             if (textBoxBottom.Text != "")
             {
@@ -246,27 +175,26 @@ namespace Calculator
                     if (textBoxTop.Text.Split(' ').Length > 1)
                     {
                         button_equal_function(sender, e, false);
-                        textBoxTop.Text = textBoxBottom.Text + " + ";
-                    }
-                    else
-                    {
-                        textBoxTop.Text = textBoxTop.Text + textBoxBottom.Text + " + ";
+                        operation_enum = newEnum;
+                        textBoxTop.Text = textBoxBottom.Text + " " + (char)operation_enum + " ";
                     }
                 }
                 else
                 {
-                    textBoxTop.Text = textBoxBottom.Text + " + ";
+                    operation_enum = newEnum;
+                    textBoxTop.Text = textBoxBottom.Text + " " + (char)operation_enum + " ";
                 }
             }
             else
             {
+                operation_enum = newEnum;
                 StringBuilder sb = new StringBuilder(textBoxTop.Text);
-                sb[sb.Length - 2] = '+';
+                sb[sb.Length - 2] = (char)operation_enum;
                 textBoxTop.Text = sb.ToString();
             }
-            operation_enum = Operation_Enum.Add;
             clear_bottom_text();
         }
+
 
         // Functions for other included math operations
         private void button_square_Click(object sender, EventArgs e)
