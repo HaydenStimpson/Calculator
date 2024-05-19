@@ -9,7 +9,6 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * Tidy code if needed - group functions etc, rename vars, combine repeated code if it exists
          * Make sure everything follows coding conventions - https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
          * Improve visuals
          *      - Icon
@@ -143,6 +142,11 @@ namespace Calculator
                 {
                     textBoxBottom.Text += ".";
                 }
+            }
+            else if (operation_enum == Operation_Enum.Equals)
+            {
+                add_character(0);
+                textBoxBottom.Text += ".";
             }
         }
 
