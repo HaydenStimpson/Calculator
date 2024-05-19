@@ -8,7 +8,6 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * Squared buttons etc should set enum to equals
          * Improve visuals
          *      - Icon
          *      - Shading?
@@ -213,6 +212,7 @@ namespace Calculator
             if (textBoxBottom.Text != "") {
                 // "G10" is number of significant figures used when the number has an 'E'
                 textBoxBottom.Text = Math.Pow((double)double.Parse(textBoxBottom.Text), 2).ToString("G10");
+                operationEnum = OperationEnum.Equals;
             }
         }
         private void buttonSquareRoot_Click(object sender, EventArgs e)
@@ -220,6 +220,7 @@ namespace Calculator
             if (textBoxBottom.Text != "")
             {
                 textBoxBottom.Text = Math.Sqrt((double)double.Parse(textBoxBottom.Text)).ToString("G10");
+                operationEnum = OperationEnum.Equals;
             }
         }
         private void buttonAddSlashMinus_Click(object sender, EventArgs e)
@@ -257,6 +258,7 @@ namespace Calculator
                 if (double.Parse(textBoxBottom.Text) != 0)
                 {
                     textBoxBottom.Text = (1 / double.Parse(textBoxBottom.Text)).ToString("G10");
+                    operationEnum = OperationEnum.Equals;
                 }
                 else
                 {
