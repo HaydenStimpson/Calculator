@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -9,24 +8,25 @@ namespace Calculator
     public partial class Calculator : Form
     {
         /* TODO
-         * Make sure everything follows coding conventions - https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+         * Squared buttons etc should set enum to equals
+         * percent key doesnt work
          * Improve visuals
          *      - Icon
          *      - Shading?
          *      - Bezels?
          */
 
-        double remembered_characters;
+        double rememberedCharacters;
         
         public Calculator()
         {
             InitializeComponent();
             // Select a button so buttons are in focus of app - otherwise keyboard shortcuts do not work initially
-            button_equal.Select();
+            buttonEqual.Select();
         }
 
         // Enumerator to determine what operation should be done when equals is pressed. Starts as null.
-        enum Operation_Enum
+        enum OperationEnum
         {
             Null = ' ',
             Add = '+', 
@@ -35,32 +35,32 @@ namespace Calculator
             Divide = '/', 
             Equals = '=',
         }
-        Operation_Enum operation_enum = Operation_Enum.Null;
+        OperationEnum operationEnum = OperationEnum.Null;
 
-        private void clear_bottom_text()
+        private void ClearBottomText()
         {
             if (textBoxBottom.Text.Length != 0)
             {
-                remembered_characters = Convert.ToDouble(textBoxBottom.Text);
+                rememberedCharacters = Convert.ToDouble(textBoxBottom.Text);
                 textBoxBottom.Text = "";
             }
         }
 
         // Backspace shortcut key needs to be implemented seperately - mnemonic does not work with backspace character
-        private void Calculator_KeyPress(object sender, KeyEventArgs e)
+        private void CalculatorKeyPress(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
             {
-                button_delete_Click(sender, e);
+                buttonDelete_Click(sender, e);
             }
         }
 
         // Add a number character to the end of the bottom text box.
-        private void add_character(double character)
+        private void AddCharacter(double character)
         {
             if (textBoxBottom.Text.Length < 18)
             {
-                if (operation_enum != Operation_Enum.Equals)
+                if (operationEnum != OperationEnum.Equals)
                 {
                     if (textBoxBottom.Text == "0")
                     {
@@ -73,14 +73,14 @@ namespace Calculator
                     textBoxTop.Text = "";
                     textBoxBottom.Text = "";
                     textBoxBottom.Text += character;
-                    operation_enum = Operation_Enum.Null;
+                    operationEnum = OperationEnum.Null;
                 }
             }
-            button_equal.Focus();
+            buttonEqual.Focus();
         }
         
         // Delete most recent number from bottom text box.
-        private void button_delete_Click(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (textBoxBottom.Text.Length != 0)
             {
@@ -89,51 +89,51 @@ namespace Calculator
         }
 
         // Functions called on number button click
-        private void button_0_Click(object sender, EventArgs e)
+        private void button0_Click(object sender, EventArgs e)
         {
-            add_character(0);
+            AddCharacter(0);
         }
-        private void button_1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            add_character(1);
+            AddCharacter(1);
         }
-        private void button_2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            add_character(2);
+            AddCharacter(2);
         }
-        private void button_3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            add_character(3);
+            AddCharacter(3);
         }
-        private void button_4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            add_character(4);
+            AddCharacter(4);
         }
-        private void button_5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            add_character(5);
+            AddCharacter(5);
         }
-        private void button_6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            add_character(6);
+            AddCharacter(6);
         }
-        private void button_7_Click(object sender, EventArgs e)
-        {
-            add_character(7);
+        private void button7_Click(object sender, EventArgs e)
+        {   
+            AddCharacter(7);
         }
-        private void button_8_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            add_character(8);
+            AddCharacter(8);
         }
-        private void button_9_Click(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)
         {
-            add_character(9);
+            AddCharacter(9);
         }
 
         // Add a dot to end of string, or set string as 0. if no numbers already there.
-        private void button_dot_Click(object sender, EventArgs e)
+        private void buttonDot_Click(object sender, EventArgs e)
         {
-            if (!textBoxBottom.Text.Contains(".") && operation_enum != Operation_Enum.Equals) {
+            if (!textBoxBottom.Text.Contains(".") && operationEnum != OperationEnum.Equals) {
                 if (textBoxBottom.Text == "")
                 {
                     textBoxBottom.Text = "0.";
@@ -143,33 +143,33 @@ namespace Calculator
                     textBoxBottom.Text += ".";
                 }
             }
-            else if (operation_enum == Operation_Enum.Equals)
+            else if (operationEnum == OperationEnum.Equals)
             {
-                add_character(0);
+                AddCharacter(0);
                 textBoxBottom.Text += ".";
             }
         }
 
         // Functions to prepare text box and set enum for basic operations.
-        private void button_divide_Click(object sender, EventArgs e)
+        private void buttonDivide_Click(object sender, EventArgs e)
         {
-            perform_Operation(sender, e, Operation_Enum.Divide);
+            PerformOperation(sender, e, OperationEnum.Divide);
         }
-        private void button_multiply_Click(object sender, EventArgs e)
+        private void buttonMultiply_Click(object sender, EventArgs e)
         {
-            perform_Operation(sender, e, Operation_Enum.Multiply);
+            PerformOperation(sender, e, OperationEnum.Multiply);
         }
-        private void button_subtract_Click(object sender, EventArgs e)
+        private void buttonSubtract_Click(object sender, EventArgs e)
         {
-            perform_Operation(sender, e, Operation_Enum.Subtract);
+            PerformOperation(sender, e, OperationEnum.Subtract);
         }
-        private void button_add_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-            perform_Operation(sender, e, Operation_Enum.Add);
+            PerformOperation(sender, e, OperationEnum.Add);
         }
 
         // New enum needs to be set before adjusting the text boxes but after button_equal_function has been called if needed.
-        private void perform_Operation(object sender, EventArgs e, Operation_Enum newEnum)
+        private void PerformOperation(object sender, EventArgs e, OperationEnum newEnum)
         {
             textBoxBottom.Text = textBoxBottom.Text.TrimEnd('.');
             if (textBoxBottom.Text != "")
@@ -178,44 +178,44 @@ namespace Calculator
                 {
                     if (textBoxTop.Text.Split(' ').Length > 1)
                     {
-                        button_equal_function(sender, e, false);
-                        operation_enum = newEnum;
-                        textBoxTop.Text = textBoxBottom.Text + " " + (char)operation_enum + " ";
+                        ButtonEqualFunction(sender, e, false);
+                        operationEnum = newEnum;
+                        textBoxTop.Text = textBoxBottom.Text + " " + (char)operationEnum + " ";
                     }
                 }
                 else
                 {
-                    operation_enum = newEnum;
-                    textBoxTop.Text = textBoxBottom.Text + " " + (char)operation_enum + " ";
+                    operationEnum = newEnum;
+                    textBoxTop.Text = textBoxBottom.Text + " " + (char)operationEnum + " ";
                 }
             }
             else
             {
-                operation_enum = newEnum;
+                operationEnum = newEnum;
                 StringBuilder sb = new StringBuilder(textBoxTop.Text);
-                sb[sb.Length - 2] = (char)operation_enum;
+                sb[sb.Length - 2] = (char)operationEnum;
                 textBoxTop.Text = sb.ToString();
             }
-            clear_bottom_text();
+            ClearBottomText();
         }
 
 
         // Functions for other included math operations
-        private void button_square_Click(object sender, EventArgs e)
+        private void buttonSquare_Click(object sender, EventArgs e)
         {
             if (textBoxBottom.Text != "") {
                 // "G10" is number of significant figures used when the number has an 'E'
                 textBoxBottom.Text = Math.Pow((double)double.Parse(textBoxBottom.Text), 2).ToString("G10");
             }
         }
-        private void button_square_root_Click(object sender, EventArgs e)
+        private void buttonSquareRoot_Click(object sender, EventArgs e)
         {
             if (textBoxBottom.Text != "")
             {
                 textBoxBottom.Text = Math.Sqrt((double)double.Parse(textBoxBottom.Text)).ToString("G10");
             }
         }
-        private void button_Add_Slash_Minus_Click(object sender, EventArgs e)
+        private void buttonAddSlashMinus_Click(object sender, EventArgs e)
         {
             if (textBoxBottom.Text != "")
             {
@@ -229,13 +229,13 @@ namespace Calculator
                 }
             }
         }
-        private void button_Percent_Click(object sender, EventArgs e)
+        private void buttonPercent_Click(object sender, EventArgs e)
         {
             if (textBoxBottom.Text != "")
             {
-                if (remembered_characters != 0)
+                if (rememberedCharacters != 0)
                 {
-                    textBoxBottom.Text = (remembered_characters * (double.Parse(textBoxBottom.Text) / 100)).ToString("G10");
+                    textBoxBottom.Text = (rememberedCharacters * (double.Parse(textBoxBottom.Text) / 100)).ToString("G10");
                 }
                 else
                 {
@@ -243,7 +243,7 @@ namespace Calculator
                 }
             }
         }
-        private void button_One_Over_Click(object sender, EventArgs e)
+        private void buttonOneOver_Click(object sender, EventArgs e)
         {
             if (textBoxBottom.Text != "")
             {
@@ -259,41 +259,41 @@ namespace Calculator
         }
 
         // Call equals function
-        private void button_equal_Click(object sender, EventArgs e)
+        private void buttonEqual_Click(object sender, EventArgs e)
         {
-            button_equal_function(sender, e, true);
+            ButtonEqualFunction(sender, e, true);
         }
 
         // Called from button_equal_Click so function can be called by other functions.
         // Performs the calculations and handles when equals button is pressed repeatedly.
-        private void button_equal_function(object sender, EventArgs e, bool equalButtonClicked = true)
+        private void ButtonEqualFunction(object sender, EventArgs e, bool equalButtonClicked = true)
         {
             if (textBoxBottom.Text != "")
             {
                 textBoxBottom.Text = textBoxBottom.Text.TrimEnd('.');
-                double ToOperate = double.Parse(textBoxBottom.Text);
+                double toOperate = double.Parse(textBoxBottom.Text);
 
                 if (!textBoxTop.Text.Contains('=') && equalButtonClicked)
                 {
                     textBoxTop.Text += textBoxBottom.Text + " = ";
                 }
 
-                switch (operation_enum)
+                switch (operationEnum)
                 {
-                    case Operation_Enum.Add:
-                        textBoxBottom.Text = (ToOperate + remembered_characters).ToString("G10");
+                    case OperationEnum.Add:
+                        textBoxBottom.Text = (toOperate + rememberedCharacters).ToString("G10");
                         break;
-                    case Operation_Enum.Subtract:
-                        textBoxBottom.Text = textBoxBottom.Text = (remembered_characters - ToOperate).ToString("G10");
+                    case OperationEnum.Subtract:
+                        textBoxBottom.Text = textBoxBottom.Text = (rememberedCharacters - toOperate).ToString("G10");
                         break;
-                    case Operation_Enum.Multiply:
-                        textBoxBottom.Text = (ToOperate * remembered_characters).ToString("G10");
+                    case OperationEnum.Multiply:
+                        textBoxBottom.Text = (toOperate * rememberedCharacters).ToString("G10");
                         break;
-                    case Operation_Enum.Divide:
-                        textBoxBottom.Text = (remembered_characters / ToOperate).ToString("G10");
+                    case OperationEnum.Divide:
+                        textBoxBottom.Text = (rememberedCharacters / toOperate).ToString("G10");
                         break;
                     // This case is to repeat the previous operation on the result of the calculation
-                    case Operation_Enum.Equals:
+                    case OperationEnum.Equals:
                         // Fix top text box
                         string[] textBoxTopSplit = textBoxTop.Text.Split(' ');
                         string finalOperateNumber = textBoxTopSplit[textBoxTopSplit.Length - 3];
@@ -321,23 +321,23 @@ namespace Calculator
                         break;
                 }
                 if (equalButtonClicked) {
-                    operation_enum = Operation_Enum.Equals;
+                    operationEnum = OperationEnum.Equals;
                 }
             }
         }
 
         // Functions for clearing the text boxes and resetting the operation enum.
-        private void button_C_Click(object sender, EventArgs e)
+        private void buttonC_Click(object sender, EventArgs e)
         {
             textBoxBottom.Text = "0";
             textBoxTop.Text = "";
-            remembered_characters = 0;
-            operation_enum = Operation_Enum.Null;
+            rememberedCharacters = 0;
+            operationEnum = OperationEnum.Null;
         }
-        private void button_CE_Click(object sender, EventArgs e)
+        private void buttonCE_Click(object sender, EventArgs e)
         {
             textBoxBottom.Text = "0";
-            operation_enum = Operation_Enum.Null;
+            operationEnum = OperationEnum.Null;
         }
     }
 }
