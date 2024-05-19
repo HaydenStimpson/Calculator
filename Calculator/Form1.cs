@@ -9,7 +9,6 @@ namespace Calculator
     {
         /* TODO
          * Squared buttons etc should set enum to equals
-         * percent key doesnt work
          * Improve visuals
          *      - Icon
          *      - Shading?
@@ -49,9 +48,17 @@ namespace Calculator
         // Backspace shortcut key needs to be implemented seperately - mnemonic does not work with backspace character
         private void CalculatorKeyPress(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Back)
+            switch (e.KeyCode)
             {
-                buttonDelete_Click(sender, e);
+                case Keys.Back:
+                    buttonDelete_Click(sender, e);
+                    break;
+                case Keys.D5:
+                    if (ModifierKeys == Keys.Shift)
+                    {
+                        buttonPercent_Click(sender, e);
+                    }
+                    break;
             }
         }
 
