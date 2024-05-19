@@ -11,7 +11,6 @@ namespace Calculator
         /* TODO
          * Tidy code if needed - group functions etc, rename vars, combine repeated code if it exists
          * Make sure everything follows coding conventions - https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
-         * If adding character and only 0 or 0., replace with new number
          * Improve visuals
          *      - Icon
          *      - Shading?
@@ -168,6 +167,7 @@ namespace Calculator
         // New enum needs to be set before adjusting the text boxes but after button_equal_function has been called if needed.
         private void perform_Operation(object sender, EventArgs e, Operation_Enum newEnum)
         {
+            textBoxBottom.Text = textBoxBottom.Text.TrimEnd('.');
             if (textBoxBottom.Text != "")
             {
                 if (textBoxTop.Text != "")
@@ -266,6 +266,7 @@ namespace Calculator
         {
             if (textBoxBottom.Text != "")
             {
+                textBoxBottom.Text = textBoxBottom.Text.TrimEnd('.');
                 double ToOperate = double.Parse(textBoxBottom.Text);
 
                 if (!textBoxTop.Text.Contains('=') && equalButtonClicked)
