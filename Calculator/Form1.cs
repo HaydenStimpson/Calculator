@@ -278,51 +278,47 @@ namespace Calculator
                     textBoxTop.Text += textBoxBottom.Text + " = ";
                 }
 
-                // TODO: Convert to switch statement
-                if (operation_enum == Operation_Enum.Add)
+                switch (operation_enum)
                 {
-                    textBoxBottom.Text = (ToOperate + remembered_characters).ToString("G10");
-                }
-                else if (operation_enum == Operation_Enum.Subtract)
-                {
-                    textBoxBottom.Text = (remembered_characters - ToOperate).ToString("G10");
-                }
-                else if (operation_enum == Operation_Enum.Multiply)
-                {
-                    textBoxBottom.Text = (ToOperate * remembered_characters).ToString("G10");
-                }
-                else if (operation_enum == Operation_Enum.Divide)
-                {
-                    textBoxBottom.Text = (remembered_characters / ToOperate).ToString("G10");
-                }
-                else if (operation_enum == Operation_Enum.Equals)
-                {
-                    // Repeat previous eqaution
-                    // Fix top text box
-                    string[] textBoxTopSplit = textBoxTop.Text.Split(' ');
-                    string finalOperateNumber = textBoxTopSplit[textBoxTopSplit.Length - 3];
-                    string finalOperator = textBoxTopSplit[textBoxTopSplit.Length - 4];
-                    string originalResult = textBoxBottom.Text;
+                    case Operation_Enum.Add:
+                        textBoxBottom.Text = (ToOperate + remembered_characters).ToString("G10");
+                        break;
+                    case Operation_Enum.Subtract:
+                        textBoxBottom.Text = textBoxBottom.Text = (remembered_characters - ToOperate).ToString("G10");
+                        break;
+                    case Operation_Enum.Multiply:
+                        textBoxBottom.Text = (ToOperate * remembered_characters).ToString("G10");
+                        break;
+                    case Operation_Enum.Divide:
+                        textBoxBottom.Text = (remembered_characters / ToOperate).ToString("G10");
+                        break;
+                    // This case is to repeat the previous operation on the result of the calculation
+                    case Operation_Enum.Equals:
+                        // Fix top text box
+                        string[] textBoxTopSplit = textBoxTop.Text.Split(' ');
+                        string finalOperateNumber = textBoxTopSplit[textBoxTopSplit.Length - 3];
+                        string finalOperator = textBoxTopSplit[textBoxTopSplit.Length - 4];
+                        string originalResult = textBoxBottom.Text;
 
-                    textBoxTop.Text = originalResult + " " + finalOperator + " " + finalOperateNumber + " = ";
+                        textBoxTop.Text = originalResult + " " + finalOperator + " " + finalOperateNumber + " = ";
 
-
-                    // Calculate new result
-                    switch (finalOperator)
-                    {
-                        case "+":
-                            textBoxBottom.Text = (Convert.ToDouble(originalResult) + Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                            break;
-                        case "-":
-                            textBoxBottom.Text = (Convert.ToDouble(originalResult) - Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                            break;
-                        case "*":
-                            textBoxBottom.Text = (Convert.ToDouble(originalResult) * Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                            break;
-                        case "/":
-                            textBoxBottom.Text = (Convert.ToDouble(originalResult) / Convert.ToDouble(finalOperateNumber)).ToString("G10");
-                            break;
-                    }
+                        // Calculate new result
+                        switch (finalOperator)
+                        {
+                            case "+":
+                                textBoxBottom.Text = (Convert.ToDouble(originalResult) + Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                                break;
+                            case "-":
+                                textBoxBottom.Text = (Convert.ToDouble(originalResult) - Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                                break;
+                            case "*":
+                                textBoxBottom.Text = (Convert.ToDouble(originalResult) * Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                                break;
+                            case "/":
+                                textBoxBottom.Text = (Convert.ToDouble(originalResult) / Convert.ToDouble(finalOperateNumber)).ToString("G10");
+                                break;
+                        }
+                        break;
                 }
                 if (equalButtonClicked) {
                     operation_enum = Operation_Enum.Equals;
