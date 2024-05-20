@@ -10,7 +10,6 @@ namespace Calculator
     {
         /* TODO
          * Improve visuals
-         *      - Icon
          *      - Shading?
          *      - Bezels?
          *      - On hover effect
