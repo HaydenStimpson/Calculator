@@ -30,94 +30,51 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxTop = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.buttonSubtract = new System.Windows.Forms.Button();
-            this.buttonMultiply = new System.Windows.Forms.Button();
-            this.buttonDivide = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.buttonC = new System.Windows.Forms.Button();
-            this.buttonCE = new System.Windows.Forms.Button();
-            this.buttonSquare = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.buttonMultiply = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.buttonSubtract = new System.Windows.Forms.Button();
+            this.buttonDivide = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.buttonEqual = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.buttonSquareRoot = new System.Windows.Forms.Button();
+            this.buttonSquare = new System.Windows.Forms.Button();
+            this.button0 = new System.Windows.Forms.Button();
+            this.buttonPlusSlashMinus = new System.Windows.Forms.Button();
+            this.buttonDot = new System.Windows.Forms.Button();
+            this.buttonCE = new System.Windows.Forms.Button();
+            this.buttonPercent = new System.Windows.Forms.Button();
+            this.buttonOneOver = new System.Windows.Forms.Button();
+            this.textBoxTop = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxBottom = new System.Windows.Forms.TextBox();
-            this.buttonOneOver = new System.Windows.Forms.Button();
-            this.buttonPercent = new System.Windows.Forms.Button();
-            this.buttonDot = new System.Windows.Forms.Button();
-            this.buttonPlusSlashMinus = new System.Windows.Forms.Button();
-            this.button0 = new System.Windows.Forms.Button();
-            this.buttonEqual = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBoxTop
+            // buttonC
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.textBoxTop, 4);
-            this.textBoxTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTop.Location = new System.Drawing.Point(0, 0);
-            this.textBoxTop.Margin = new System.Windows.Forms.Padding(0);
-            this.textBoxTop.Name = "textBoxTop";
-            this.textBoxTop.ReadOnly = true;
-            this.textBoxTop.Size = new System.Drawing.Size(332, 45);
-            this.textBoxTop.TabIndex = 0;
-            this.textBoxTop.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1, 403);
-            this.button1.Margin = new System.Windows.Forms.Padding(1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 76);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "&1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button5
-            // 
-            this.button5.AutoSize = true;
-            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(84, 325);
-            this.button5.Margin = new System.Windows.Forms.Padding(1);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(81, 76);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "&5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(84, 403);
-            this.button2.Margin = new System.Windows.Forms.Padding(1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 76);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "&2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonC.AutoSize = true;
+            this.buttonC.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonC.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonC.Location = new System.Drawing.Point(167, 91);
+            this.buttonC.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonC.Name = "buttonC";
+            this.buttonC.Size = new System.Drawing.Size(81, 76);
+            this.buttonC.TabIndex = 2;
+            this.buttonC.Text = "C";
+            this.buttonC.UseVisualStyleBackColor = true;
+            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
             // 
             // button9
             // 
@@ -135,6 +92,21 @@ namespace Calculator
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // buttonMultiply
+            // 
+            this.buttonMultiply.AutoSize = true;
+            this.buttonMultiply.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMultiply.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMultiply.Location = new System.Drawing.Point(250, 247);
+            this.buttonMultiply.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonMultiply.Name = "buttonMultiply";
+            this.buttonMultiply.Size = new System.Drawing.Size(81, 76);
+            this.buttonMultiply.TabIndex = 11;
+            this.buttonMultiply.Text = "&*";
+            this.buttonMultiply.UseVisualStyleBackColor = true;
+            this.buttonMultiply.Click += new System.EventHandler(this.buttonMultiply_Click);
+            // 
             // button8
             // 
             this.button8.AutoSize = true;
@@ -149,66 +121,6 @@ namespace Calculator
             this.button8.Text = "&8";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button6
-            // 
-            this.button6.AutoSize = true;
-            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(167, 325);
-            this.button6.Margin = new System.Windows.Forms.Padding(1);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 76);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "&6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button3
-            // 
-            this.button3.AutoSize = true;
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(167, 403);
-            this.button3.Margin = new System.Windows.Forms.Padding(1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(81, 76);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "&3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button7
-            // 
-            this.button7.AutoSize = true;
-            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(1, 247);
-            this.button7.Margin = new System.Windows.Forms.Padding(1);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(81, 76);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "&7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1, 325);
-            this.button4.Margin = new System.Windows.Forms.Padding(1);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 76);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "&4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // buttonSubtract
             // 
@@ -225,21 +137,6 @@ namespace Calculator
             this.buttonSubtract.UseVisualStyleBackColor = true;
             this.buttonSubtract.Click += new System.EventHandler(this.buttonSubtract_Click);
             // 
-            // buttonMultiply
-            // 
-            this.buttonMultiply.AutoSize = true;
-            this.buttonMultiply.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonMultiply.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMultiply.Location = new System.Drawing.Point(250, 247);
-            this.buttonMultiply.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonMultiply.Name = "buttonMultiply";
-            this.buttonMultiply.Size = new System.Drawing.Size(81, 76);
-            this.buttonMultiply.TabIndex = 11;
-            this.buttonMultiply.Text = "&*";
-            this.buttonMultiply.UseVisualStyleBackColor = true;
-            this.buttonMultiply.Click += new System.EventHandler(this.buttonMultiply_Click);
-            // 
             // buttonDivide
             // 
             this.buttonDivide.AutoSize = true;
@@ -254,21 +151,6 @@ namespace Calculator
             this.buttonDivide.Text = "&/";
             this.buttonDivide.UseVisualStyleBackColor = true;
             this.buttonDivide.Click += new System.EventHandler(this.buttonDivide_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.AutoSize = true;
-            this.buttonAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(250, 403);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(81, 76);
-            this.buttonAdd.TabIndex = 19;
-            this.buttonAdd.Text = "&+";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonDelete
             // 
@@ -286,35 +168,155 @@ namespace Calculator
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // buttonC
+            // button5
             // 
-            this.buttonC.AutoSize = true;
-            this.buttonC.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonC.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonC.Location = new System.Drawing.Point(167, 91);
-            this.buttonC.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonC.Name = "buttonC";
-            this.buttonC.Size = new System.Drawing.Size(81, 76);
-            this.buttonC.TabIndex = 2;
-            this.buttonC.Text = "C";
-            this.buttonC.UseVisualStyleBackColor = true;
-            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
+            this.button5.AutoSize = true;
+            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(84, 325);
+            this.button5.Margin = new System.Windows.Forms.Padding(1);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(81, 76);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "&5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // buttonCE
+            // buttonAdd
             // 
-            this.buttonCE.AutoSize = true;
-            this.buttonCE.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonCE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCE.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCE.Location = new System.Drawing.Point(84, 91);
-            this.buttonCE.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonCE.Name = "buttonCE";
-            this.buttonCE.Size = new System.Drawing.Size(81, 76);
-            this.buttonCE.TabIndex = 1;
-            this.buttonCE.Text = "CE";
-            this.buttonCE.UseVisualStyleBackColor = true;
-            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
+            this.buttonAdd.AutoSize = true;
+            this.buttonAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.Location = new System.Drawing.Point(250, 403);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(81, 76);
+            this.buttonAdd.TabIndex = 19;
+            this.buttonAdd.Text = "&+";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // button7
+            // 
+            this.button7.AutoSize = true;
+            this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(1, 247);
+            this.button7.Margin = new System.Windows.Forms.Padding(1);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(81, 76);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "&7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // buttonEqual
+            // 
+            this.buttonEqual.AutoSize = true;
+            this.buttonEqual.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonEqual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonEqual.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEqual.Location = new System.Drawing.Point(250, 481);
+            this.buttonEqual.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonEqual.Name = "buttonEqual";
+            this.buttonEqual.Size = new System.Drawing.Size(81, 76);
+            this.buttonEqual.TabIndex = 23;
+            this.buttonEqual.Text = "&=";
+            this.buttonEqual.UseVisualStyleBackColor = true;
+            this.buttonEqual.Click += new System.EventHandler(this.buttonEqual_Click);
+            // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(167, 325);
+            this.button6.Margin = new System.Windows.Forms.Padding(1);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(81, 76);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "&6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button4
+            // 
+            this.button4.AutoSize = true;
+            this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(1, 325);
+            this.button4.Margin = new System.Windows.Forms.Padding(1);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(81, 76);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "&4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(84, 403);
+            this.button2.Margin = new System.Windows.Forms.Padding(1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 76);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "&2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1, 403);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 76);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "&1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(167, 403);
+            this.button3.Margin = new System.Windows.Forms.Padding(1);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(81, 76);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "&3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonSquareRoot
+            // 
+            this.buttonSquareRoot.AutoSize = true;
+            this.buttonSquareRoot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSquareRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSquareRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSquareRoot.Location = new System.Drawing.Point(167, 169);
+            this.buttonSquareRoot.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSquareRoot.Name = "buttonSquareRoot";
+            this.buttonSquareRoot.Size = new System.Drawing.Size(81, 76);
+            this.buttonSquareRoot.TabIndex = 6;
+            this.buttonSquareRoot.Text = "√";
+            this.buttonSquareRoot.UseVisualStyleBackColor = true;
+            this.buttonSquareRoot.Click += new System.EventHandler(this.buttonSquareRoot_Click);
             // 
             // buttonSquare
             // 
@@ -331,20 +333,108 @@ namespace Calculator
             this.buttonSquare.UseVisualStyleBackColor = true;
             this.buttonSquare.Click += new System.EventHandler(this.buttonSquare_Click);
             // 
-            // buttonSquareRoot
+            // button0
             // 
-            this.buttonSquareRoot.AutoSize = true;
-            this.buttonSquareRoot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonSquareRoot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSquareRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSquareRoot.Location = new System.Drawing.Point(167, 169);
-            this.buttonSquareRoot.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonSquareRoot.Name = "buttonSquareRoot";
-            this.buttonSquareRoot.Size = new System.Drawing.Size(81, 76);
-            this.buttonSquareRoot.TabIndex = 6;
-            this.buttonSquareRoot.Text = "√";
-            this.buttonSquareRoot.UseVisualStyleBackColor = true;
-            this.buttonSquareRoot.Click += new System.EventHandler(this.buttonSquareRoot_Click);
+            this.button0.AutoSize = true;
+            this.button0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button0.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button0.Location = new System.Drawing.Point(84, 481);
+            this.button0.Margin = new System.Windows.Forms.Padding(1);
+            this.button0.Name = "button0";
+            this.button0.Size = new System.Drawing.Size(81, 76);
+            this.button0.TabIndex = 21;
+            this.button0.Text = "&0";
+            this.button0.UseVisualStyleBackColor = true;
+            this.button0.Click += new System.EventHandler(this.button0_Click);
+            // 
+            // buttonPlusSlashMinus
+            // 
+            this.buttonPlusSlashMinus.AutoSize = true;
+            this.buttonPlusSlashMinus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPlusSlashMinus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonPlusSlashMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlusSlashMinus.Location = new System.Drawing.Point(1, 481);
+            this.buttonPlusSlashMinus.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonPlusSlashMinus.Name = "buttonPlusSlashMinus";
+            this.buttonPlusSlashMinus.Size = new System.Drawing.Size(81, 76);
+            this.buttonPlusSlashMinus.TabIndex = 20;
+            this.buttonPlusSlashMinus.Text = "+/-";
+            this.buttonPlusSlashMinus.UseVisualStyleBackColor = true;
+            this.buttonPlusSlashMinus.Click += new System.EventHandler(this.buttonAddSlashMinus_Click);
+            // 
+            // buttonDot
+            // 
+            this.buttonDot.AutoSize = true;
+            this.buttonDot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDot.Location = new System.Drawing.Point(167, 481);
+            this.buttonDot.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonDot.Name = "buttonDot";
+            this.buttonDot.Size = new System.Drawing.Size(81, 76);
+            this.buttonDot.TabIndex = 22;
+            this.buttonDot.Text = "&.";
+            this.buttonDot.UseVisualStyleBackColor = true;
+            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
+            // 
+            // buttonCE
+            // 
+            this.buttonCE.AutoSize = true;
+            this.buttonCE.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonCE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCE.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCE.Location = new System.Drawing.Point(84, 91);
+            this.buttonCE.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonCE.Name = "buttonCE";
+            this.buttonCE.Size = new System.Drawing.Size(81, 76);
+            this.buttonCE.TabIndex = 1;
+            this.buttonCE.Text = "CE";
+            this.buttonCE.UseVisualStyleBackColor = true;
+            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
+            // 
+            // buttonPercent
+            // 
+            this.buttonPercent.AutoSize = true;
+            this.buttonPercent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPercent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPercent.Location = new System.Drawing.Point(1, 91);
+            this.buttonPercent.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonPercent.Name = "buttonPercent";
+            this.buttonPercent.Size = new System.Drawing.Size(81, 76);
+            this.buttonPercent.TabIndex = 0;
+            this.buttonPercent.Text = "%";
+            this.buttonPercent.UseVisualStyleBackColor = true;
+            this.buttonPercent.Click += new System.EventHandler(this.buttonPercent_Click);
+            // 
+            // buttonOneOver
+            // 
+            this.buttonOneOver.AutoSize = true;
+            this.buttonOneOver.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonOneOver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonOneOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOneOver.Location = new System.Drawing.Point(1, 169);
+            this.buttonOneOver.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonOneOver.Name = "buttonOneOver";
+            this.buttonOneOver.Size = new System.Drawing.Size(81, 76);
+            this.buttonOneOver.TabIndex = 4;
+            this.buttonOneOver.Text = "1/x";
+            this.buttonOneOver.UseVisualStyleBackColor = true;
+            this.buttonOneOver.Click += new System.EventHandler(this.buttonOneOver_Click);
+            // 
+            // textBoxTop
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.textBoxTop, 4);
+            this.textBoxTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTop.Location = new System.Drawing.Point(0, 0);
+            this.textBoxTop.Margin = new System.Windows.Forms.Padding(0);
+            this.textBoxTop.Name = "textBoxTop";
+            this.textBoxTop.ReadOnly = true;
+            this.textBoxTop.Size = new System.Drawing.Size(332, 45);
+            this.textBoxTop.TabIndex = 0;
+            this.textBoxTop.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -404,7 +494,7 @@ namespace Calculator
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBoxBottom, 4);
             this.textBoxBottom.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.textBoxBottom.Location = new System.Drawing.Point(0, 45);
             this.textBoxBottom.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxBottom.Name = "textBoxBottom";
@@ -414,96 +504,6 @@ namespace Calculator
             this.textBoxBottom.TabIndex = 33;
             this.textBoxBottom.TabStop = false;
             this.textBoxBottom.Text = "0";
-            // 
-            // buttonOneOver
-            // 
-            this.buttonOneOver.AutoSize = true;
-            this.buttonOneOver.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonOneOver.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonOneOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOneOver.Location = new System.Drawing.Point(1, 169);
-            this.buttonOneOver.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonOneOver.Name = "buttonOneOver";
-            this.buttonOneOver.Size = new System.Drawing.Size(81, 76);
-            this.buttonOneOver.TabIndex = 4;
-            this.buttonOneOver.Text = "1/x";
-            this.buttonOneOver.UseVisualStyleBackColor = true;
-            this.buttonOneOver.Click += new System.EventHandler(this.buttonOneOver_Click);
-            // 
-            // buttonPercent
-            // 
-            this.buttonPercent.AutoSize = true;
-            this.buttonPercent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonPercent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPercent.Location = new System.Drawing.Point(1, 91);
-            this.buttonPercent.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonPercent.Name = "buttonPercent";
-            this.buttonPercent.Size = new System.Drawing.Size(81, 76);
-            this.buttonPercent.TabIndex = 0;
-            this.buttonPercent.Text = "%";
-            this.buttonPercent.UseVisualStyleBackColor = true;
-            this.buttonPercent.Click += new System.EventHandler(this.buttonPercent_Click);
-            // 
-            // buttonDot
-            // 
-            this.buttonDot.AutoSize = true;
-            this.buttonDot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonDot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDot.Location = new System.Drawing.Point(167, 481);
-            this.buttonDot.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonDot.Name = "buttonDot";
-            this.buttonDot.Size = new System.Drawing.Size(81, 76);
-            this.buttonDot.TabIndex = 22;
-            this.buttonDot.Text = "&.";
-            this.buttonDot.UseVisualStyleBackColor = true;
-            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
-            // 
-            // buttonPlusSlashMinus
-            // 
-            this.buttonPlusSlashMinus.AutoSize = true;
-            this.buttonPlusSlashMinus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonPlusSlashMinus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPlusSlashMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlusSlashMinus.Location = new System.Drawing.Point(1, 481);
-            this.buttonPlusSlashMinus.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonPlusSlashMinus.Name = "buttonPlusSlashMinus";
-            this.buttonPlusSlashMinus.Size = new System.Drawing.Size(81, 76);
-            this.buttonPlusSlashMinus.TabIndex = 20;
-            this.buttonPlusSlashMinus.Text = "+/-";
-            this.buttonPlusSlashMinus.UseVisualStyleBackColor = true;
-            this.buttonPlusSlashMinus.Click += new System.EventHandler(this.buttonAddSlashMinus_Click);
-            // 
-            // button0
-            // 
-            this.button0.AutoSize = true;
-            this.button0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button0.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button0.Location = new System.Drawing.Point(84, 481);
-            this.button0.Margin = new System.Windows.Forms.Padding(1);
-            this.button0.Name = "button0";
-            this.button0.Size = new System.Drawing.Size(81, 76);
-            this.button0.TabIndex = 21;
-            this.button0.Text = "&0";
-            this.button0.UseVisualStyleBackColor = true;
-            this.button0.Click += new System.EventHandler(this.button0_Click);
-            // 
-            // buttonEqual
-            // 
-            this.buttonEqual.AutoSize = true;
-            this.buttonEqual.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonEqual.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonEqual.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEqual.Location = new System.Drawing.Point(250, 481);
-            this.buttonEqual.Margin = new System.Windows.Forms.Padding(1);
-            this.buttonEqual.Name = "buttonEqual";
-            this.buttonEqual.Size = new System.Drawing.Size(81, 76);
-            this.buttonEqual.TabIndex = 23;
-            this.buttonEqual.Text = "&=";
-            this.buttonEqual.UseVisualStyleBackColor = true;
-            this.buttonEqual.Click += new System.EventHandler(this.buttonEqual_Click);
             // 
             // Calculator
             // 
@@ -516,6 +516,7 @@ namespace Calculator
             this.Name = "Calculator";
             this.Text = "Calculator";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CalculatorKeyPress);
+            this.Resize += new System.EventHandler(this.CalculatorResize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -524,35 +525,34 @@ namespace Calculator
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxTop;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button buttonSubtract;
-        private System.Windows.Forms.Button buttonMultiply;
-        private System.Windows.Forms.Button buttonDivide;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonC;
-        private System.Windows.Forms.Button buttonCE;
-        private System.Windows.Forms.Button buttonSquare;
-        private System.Windows.Forms.Button buttonSquareRoot;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button buttonDot;
-        private System.Windows.Forms.Button buttonPlusSlashMinus;
-        private System.Windows.Forms.Button button0;
-        private System.Windows.Forms.Button buttonEqual;
-        private System.Windows.Forms.Button buttonPercent;
-        private System.Windows.Forms.Button buttonOneOver;
-        private System.Windows.Forms.TextBox textBoxBottom;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button buttonC;
+        private Button button9;
+        private Button buttonMultiply;
+        private Button button8;
+        private Button buttonSubtract;
+        private Button buttonDivide;
+        private Button buttonDelete;
+        private Button button5;
+        private Button buttonAdd;
+        private Button button7;
+        private Button buttonEqual;
+        private Button button6;
+        private Button button4;
+        private Button button2;
+        private Button button1;
+        private Button button3;
+        private Button buttonSquareRoot;
+        private Button buttonSquare;
+        private Button button0;
+        private Button buttonPlusSlashMinus;
+        private Button buttonDot;
+        private Button buttonCE;
+        private Button buttonPercent;
+        private Button buttonOneOver;
+        private TextBox textBoxTop;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TextBox textBoxBottom;
     }
 }
 

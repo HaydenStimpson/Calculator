@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,10 +13,11 @@ namespace Calculator
          *      - Icon
          *      - Shading?
          *      - Bezels?
+         *      - On hover effect
          */
 
         double rememberedCharacters;
-        
+  
         public Calculator()
         {
             InitializeComponent();
@@ -41,6 +43,15 @@ namespace Calculator
             {
                 rememberedCharacters = Convert.ToDouble(textBoxBottom.Text);
                 textBoxBottom.Text = "";
+            }
+        }
+
+        // Increase font size as window size increased, though still account for width of buttons if width not being adjusted
+        private void CalculatorResize(object sender, EventArgs e)
+        {
+            foreach (Control control in Controls[0].Controls)
+            {
+                control.Font = new System.Drawing.Font("Microsoft Sans Serif", Math.Min(this.Height / 24, this.Width / 14));
             }
         }
 
