@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Calculator.Properties;
+using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,6 +19,7 @@ namespace Calculator
   
         public Calculator()
         {
+            this.Icon = Resources.calc_icon;
             InitializeComponent();
             // Select a button so buttons are in focus of app - otherwise keyboard shortcuts do not work initially
             buttonEqual.Select();
@@ -194,7 +195,9 @@ namespace Calculator
                 {
                     if (textBoxTop.Text.Split(' ').Length > 1)
                     {
-                        ButtonEqualFunction(sender, e, false);
+                        if (operationEnum != OperationEnum.Equals) {
+                            ButtonEqualFunction(sender, e, false);
+                        }
                         operationEnum = newEnum;
                         textBoxTop.Text = textBoxBottom.Text + " " + (char)operationEnum + " ";
                     }
